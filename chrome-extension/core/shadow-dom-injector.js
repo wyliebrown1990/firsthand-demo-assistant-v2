@@ -264,6 +264,9 @@ class ShadowDOMInjector {
     } else if (componentClass.name === 'XboxGamePassQuiz') {
       // Xbox Game Pass Interactive Quiz component
       this.renderXboxComponent(wrapper, componentClass, dimensions);
+    } else if (componentClass.name === 'LouisVuittonEndlessSummer') {
+      // Louis Vuitton Endless Summer interactive luxury travel component
+      this.renderLouisVuittonComponent(wrapper, componentClass, dimensions);
     } else {
       // Generic fallback with flexible dimensions
       this.renderGenericComponent(wrapper, componentClass, dimensions);
@@ -2268,6 +2271,883 @@ class ShadowDOMInjector {
       }
       #fh-xbox-start-over:hover {
         color: #10b981 !important;
+      }
+    `;
+    wrapper.appendChild(style);
+  }
+
+  renderLouisVuittonComponent(wrapper, componentClass, dimensions) {
+    // Style the wrapper to ensure proper containment
+    wrapper.style.cssText = `
+      display: block !important;
+      width: ${dimensions.width}px !important;
+      height: ${dimensions.height}px !important;
+      max-width: ${dimensions.width}px !important;
+      max-height: ${dimensions.height}px !important;
+      overflow: hidden !important;
+      position: relative !important;
+      contain: layout style paint size !important;
+      isolation: isolate !important;
+    `;
+
+    const context = {
+      currentScreen: 'hero',
+      selectedDestination: '',
+      cart: [],
+      products: {
+        turkey: [
+          {
+            id: 'turkey-1',
+            name: 'Scallop Stripe Cardigan',
+            description: 'This chic button-up cardigan is crafted in a casual cropped, fitted shape from a flexible wool-blend knit in a graphic scalloped striped finish peppered with Monogram Flower motifs.',
+            image: 'https://i.ibb.co/Z6n9byrZ/Chat-GPT-Image-May-29-2025-09-11-15-AM.png',
+            price: ''
+          },
+          {
+            id: 'turkey-2',
+            name: 'Neverfull MM',
+            description: 'Ideal for city commutes and beyond, the iconic Neverfull MM tote is updated for the season in timeless Monogram denim.',
+            image: 'https://i.ibb.co/j94tbr6x/Chat-GPT-Image-May-29-2025-09-11-20-AM.png',
+            price: ''
+          }
+        ],
+        france: [
+          {
+            id: 'france-1',
+            name: 'Silk Sleeveless Top with Monogram Tie',
+            description: 'Sophisticated and Parisian-chic.',
+            image: 'https://us.louisvuitton.com/images/is/image/lv/1/PP_VP_L/louis-vuitton-scallop-stripe-cardigan%20--FTKC23VRF631_PM1_Worn%20view.png?wid=2400&hei=2400',
+            price: '$2,230'
+          },
+          {
+            id: 'france-2',
+            name: 'LV Isola Flat Sandals',
+            description: 'Comfortable and elegant for cobblestone streets and boardwalks.',
+            image: 'https://us.louisvuitton.com/images/is/image/lv/1/PP_VP_L/louis-vuitton-neverfull-mm--M13192_PM2_Front%20view.png?wid=2400&hei=2400',
+            price: '$850'
+          }
+        ],
+        portugal: [
+          {
+            id: 'portugal-1',
+            name: 'LV x TM Twist PM',
+            description: 'Reimagined with playful touches from the celebratory re-edition of the Louis Vuitton x Murakami collection, the Twist PM handbag makes a chic, summery statement.',
+            image: 'https://us.louisvuitton.com/images/is/image/lv/1/PP_VP_L/louis-vuitton-lv-x-tm-twist-pm--M13239_PM2_Front%20view.png?wid=2400&hei=2400',
+            price: ''
+          },
+          {
+            id: 'portugal-2',
+            name: 'Swing Open Back Ballerina',
+            description: 'The Swing open-back ballerina is a chic, summery style crafted from woven raffia.',
+            image: 'https://us.louisvuitton.com/images/is/image/lv/1/PP_VP_L/louis-vuitton-swing-open-back-ballerina--ATP001RA95_PM2_Front%20view.png?wid=2400&hei=2400',
+            price: ''
+          }
+        ],
+        italy: [
+          {
+            id: 'italy-1',
+            name: 'Scarf Print Shirt Dress',
+            description: 'This breezy shirt dress is cut in an ample oversized fit with batwing sleeves to enhance the voluminous silhouette.',
+            image: 'https://us.louisvuitton.com/images/is/image/lv/1/PP_VP_L/louis-vuitton-scarf-print-shirt-dress--FTDR42VIO570_PM2_Front%20view.png?wid=2400&hei=2400',
+            price: ''
+          },
+          {
+            id: 'italy-2',
+            name: 'LV Mare Wedge Sandal',
+            description: 'The LV Mare wedge sandal is crafted from raffia, which gives it a refined, artisanal feel.',
+            image: 'https://us.louisvuitton.com/images/is/image/lv/1/PP_VP_L/louis-vuitton-lv-mare-wedge-sandal--ATG008RA95_PM2_Front%20view.png?wid=2400&hei=2400',
+            price: ''
+          }
+        ]
+      },
+      destinationNames: {
+        turkey: 'Oludeniz Beach, Turkey',
+        france: 'Bay of Biscay, Biarritz, France',
+        portugal: 'Praia da Marinha, Algarve, Portugal',
+        italy: 'San Fruttuoso, Liguria, Italy'
+      }
+    };
+
+    const template = this.getLouisVuittonTemplate(dimensions);
+    wrapper.innerHTML = template;
+    this.addLouisVuittonStyles(wrapper);
+    this.initializeLouisVuittonInteractivity(wrapper, context);
+  }
+
+  getLouisVuittonTemplate(dimensions) {
+    return `
+      <div class="fh-lv-container fh-ad-unit-container" id="fh-louis-vuitton-endless-summer" style="
+        all: initial;
+        box-sizing: border-box !important;
+        font-family: 'Playfair Display', Georgia, serif !important;
+        position: relative !important;
+        width: ${dimensions.width}px !important;
+        height: ${dimensions.height}px !important;
+        min-width: ${dimensions.width}px !important;
+        min-height: ${dimensions.height}px !important;
+        max-width: ${dimensions.width}px !important;
+        max-height: ${dimensions.height}px !important;
+        background: linear-gradient(135deg, #FAF8F5 0%, #F5F1EB 100%) !important;
+        border: 1px solid #E8E0D5 !important;
+        border-radius: 8px !important;
+        overflow: hidden !important;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1) !important;
+        color: #2B2B2B !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        cursor: default !important;
+        display: block !important;
+        float: none !important;
+        clear: both !important;
+        contain: layout style paint size !important;
+        isolation: isolate !important;
+      ">
+        <!-- Background texture overlay -->
+        <div class="fh-lv-texture" style="
+          position: absolute !important;
+          top: 0 !important;
+          left: 0 !important;
+          right: 0 !important;
+          bottom: 0 !important;
+          background-image: 
+            radial-gradient(circle at 20% 30%, rgba(215, 197, 173, 0.1) 1px, transparent 1px),
+            radial-gradient(circle at 70% 80%, rgba(215, 197, 173, 0.08) 1px, transparent 1px),
+            radial-gradient(circle at 45% 60%, rgba(215, 197, 173, 0.06) 1px, transparent 1px) !important;
+          background-size: 50px 50px, 80px 80px, 60px 60px !important;
+          pointer-events: none !important;
+        "></div>
+
+        <!-- Header branding -->
+        <div class="fh-lv-header" style="
+          position: absolute !important;
+          top: 20px !important;
+          left: 20px !important;
+          z-index: 10 !important;
+        ">
+          <div class="fh-lv-logo" style="
+            font-size: 18px !important;
+            font-weight: 700 !important;
+            color: #2B2B2B !important;
+            letter-spacing: 2px !important;
+            margin-bottom: 2px !important;
+          ">LOUIS VUITTON</div>
+          <div class="fh-lv-campaign" style="
+            font-size: 12px !important;
+            color: #8B7355 !important;
+            font-weight: 400 !important;
+            letter-spacing: 1px !important;
+            font-style: italic !important;
+          ">Summer Odyssey</div>
+        </div>
+
+        <!-- Cart icon -->
+        <div class="fh-lv-cart-icon" style="
+          position: absolute !important;
+          top: 20px !important;
+          right: 20px !important;
+          width: 32px !important;
+          height: 32px !important;
+          background: rgba(215, 197, 173, 0.2) !important;
+          border-radius: 50% !important;
+          display: flex !important;
+          align-items: center !important;
+          justify-content: center !important;
+          cursor: pointer !important;
+          transition: all 0.3s ease !important;
+          opacity: 0 !important;
+          z-index: 10 !important;
+        ">
+          🛍️
+          <div class="fh-lv-cart-count" style="
+            position: absolute !important;
+            top: -5px !important;
+            right: -5px !important;
+            background: #2B2B2B !important;
+            color: white !important;
+            font-size: 10px !important;
+            width: 16px !important;
+            height: 16px !important;
+            border-radius: 50% !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+          ">0</div>
+        </div>
+
+        <!-- Hero Screen -->
+        <div class="fh-lv-screen fh-lv-hero-screen" style="
+          position: absolute !important;
+          top: 0 !important;
+          left: 0 !important;
+          width: 100% !important;
+          height: 100% !important;
+          padding: 20px !important;
+          display: flex !important;
+          flex-direction: column !important;
+          justify-content: center !important;
+          align-items: center !important;
+          text-align: center !important;
+          opacity: 1 !important;
+          transform: translateX(0) !important;
+          transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+        ">
+          <h1 class="fh-lv-hero-title" style="
+            font-size: 32px !important;
+            font-weight: 600 !important;
+            color: #2B2B2B !important;
+            margin-bottom: 16px !important;
+            line-height: 1.2 !important;
+          ">Where Will Summer Take You?</h1>
+          <p class="fh-lv-hero-subtitle" style="
+            font-size: 16px !important;
+            color: #8B7355 !important;
+            margin-bottom: 32px !important;
+            max-width: 400px !important;
+            line-height: 1.4 !important;
+          ">Style your wardrobe for Europe's most luxurious coasts.</p>
+          <button class="fh-lv-button fh-lv-destinations-btn" style="
+            background: #D7C5AD !important;
+            color: #2B2B2B !important;
+            border: none !important;
+            padding: 14px 28px !important;
+            font-size: 14px !important;
+            font-weight: 600 !important;
+            letter-spacing: 1px !important;
+            border-radius: 25px !important;
+            cursor: pointer !important;
+            transition: all 0.3s ease !important;
+            font-family: inherit !important;
+            text-transform: uppercase !important;
+          ">Choose Your Destination</button>
+        </div>
+
+        <!-- Destination Screen -->
+        <div class="fh-lv-screen fh-lv-destination-screen" style="
+          position: absolute !important;
+          top: 0 !important;
+          left: 0 !important;
+          width: 100% !important;
+          height: 100% !important;
+          padding: 20px !important;
+          display: flex !important;
+          flex-direction: column !important;
+          opacity: 0 !important;
+          transform: translateX(100%) !important;
+          transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+        ">
+          <div class="fh-lv-content" style="margin-top: 60px !important;">
+            <h2 class="fh-lv-destination-title" style="
+              font-size: 24px !important;
+              color: #2B2B2B !important;
+              margin-bottom: 24px !important;
+              text-align: center !important;
+            ">Select your destination to explore a curated summer look:</h2>
+            <div class="fh-lv-destinations-grid" style="
+              display: grid !important;
+              grid-template-columns: 1fr 1fr !important;
+              gap: 12px !important;
+              margin-top: 20px !important;
+            ">
+              <div class="fh-lv-destination-button" data-destination="turkey" style="
+                background: rgba(255, 255, 255, 0.8) !important;
+                border: 2px solid #E8E0D5 !important;
+                padding: 16px !important;
+                border-radius: 12px !important;
+                cursor: pointer !important;
+                transition: all 0.3s ease !important;
+                text-align: center !important;
+                font-size: 13px !important;
+                font-weight: 600 !important;
+                color: #2B2B2B !important;
+                backdrop-filter: blur(10px) !important;
+              ">
+                Oludeniz Beach<br>Turkey
+              </div>
+              <div class="fh-lv-destination-button" data-destination="france" style="
+                background: rgba(255, 255, 255, 0.8) !important;
+                border: 2px solid #E8E0D5 !important;
+                padding: 16px !important;
+                border-radius: 12px !important;
+                cursor: pointer !important;
+                transition: all 0.3s ease !important;
+                text-align: center !important;
+                font-size: 13px !important;
+                font-weight: 600 !important;
+                color: #2B2B2B !important;
+                backdrop-filter: blur(10px) !important;
+              ">
+                Bay of Biscay<br>Biarritz, France
+              </div>
+              <div class="fh-lv-destination-button" data-destination="portugal" style="
+                background: rgba(255, 255, 255, 0.8) !important;
+                border: 2px solid #E8E0D5 !important;
+                padding: 16px !important;
+                border-radius: 12px !important;
+                cursor: pointer !important;
+                transition: all 0.3s ease !important;
+                text-align: center !important;
+                font-size: 13px !important;
+                font-weight: 600 !important;
+                color: #2B2B2B !important;
+                backdrop-filter: blur(10px) !important;
+              ">
+                Praia da Marinha<br>Algarve, Portugal
+              </div>
+              <div class="fh-lv-destination-button" data-destination="italy" style="
+                background: rgba(255, 255, 255, 0.8) !important;
+                border: 2px solid #E8E0D5 !important;
+                padding: 16px !important;
+                border-radius: 12px !important;
+                cursor: pointer !important;
+                transition: all 0.3s ease !important;
+                text-align: center !important;
+                font-size: 13px !important;
+                font-weight: 600 !important;
+                color: #2B2B2B !important;
+                backdrop-filter: blur(10px) !important;
+              ">
+                San Fruttuoso<br>Liguria, Italy
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product Screen -->
+        <div class="fh-lv-screen fh-lv-product-screen" style="
+          position: absolute !important;
+          top: 0 !important;
+          left: 0 !important;
+          width: 100% !important;
+          height: 100% !important;
+          padding: 20px !important;
+          display: flex !important;
+          flex-direction: column !important;
+          opacity: 0 !important;
+          transform: translateX(100%) !important;
+          transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+          overflow: hidden !important;
+        ">
+          <!-- Header Section -->
+          <div class="fh-lv-product-header" style="
+            flex-shrink: 0 !important;
+            margin-top: 30px !important;
+            margin-bottom: 15px !important;
+          ">
+            <h2 class="fh-lv-product-title" style="
+              font-size: 18px !important;
+              color: #2B2B2B !important;
+              text-align: center !important;
+              margin-bottom: 4px !important;
+            ">Indulge in the Elegance of Summer Journeys</h2>
+            <p class="fh-lv-product-subtitle" style="
+              font-size: 13px !important;
+              color: #8B7355 !important;
+              text-align: center !important;
+              margin-bottom: 0 !important;
+            ">Style your wardrobe for your selected destination</p>
+          </div>
+          
+          <!-- Products Section -->
+          <div class="fh-lv-products-section" style="
+            flex: 1 !important;
+            display: flex !important;
+            flex-direction: column !important;
+            min-height: 0 !important;
+          ">
+            <div class="fh-lv-products-grid" style="
+              display: grid !important;
+              grid-template-columns: 1fr 1fr !important;
+              gap: 15px !important;
+              flex: 1 !important;
+              align-content: start !important;
+            "></div>
+          </div>
+          
+          <!-- Footer Section -->
+          <div class="fh-lv-product-footer" style="
+            flex-shrink: 0 !important;
+            text-align: center !important;
+            margin-top: 15px !important;
+          ">
+            <button class="fh-lv-button fh-lv-back-button" style="
+              background: rgba(139, 115, 85, 0.2) !important;
+              color: #8B7355 !important;
+              border: 1px solid #8B7355 !important;
+              padding: 12px 24px !important;
+              font-size: 12px !important;
+              font-weight: 600 !important;
+              letter-spacing: 1px !important;
+              border-radius: 25px !important;
+              cursor: pointer !important;
+              transition: all 0.3s ease !important;
+              font-family: inherit !important;
+              text-transform: uppercase !important;
+            ">← Back to Destinations</button>
+          </div>
+        </div>
+
+        <!-- Cart Screen -->
+        <div class="fh-lv-screen fh-lv-cart-screen" style="
+          position: absolute !important;
+          top: 0 !important;
+          left: 0 !important;
+          width: 100% !important;
+          height: 100% !important;
+          padding: 20px !important;
+          display: flex !important;
+          flex-direction: column !important;
+          opacity: 0 !important;
+          transform: translateX(100%) !important;
+          transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+        ">
+          <div class="fh-lv-content" style="margin-top: 60px !important;">
+            <h2 class="fh-lv-cart-title" style="
+              font-size: 24px !important;
+              color: #2B2B2B !important;
+              margin-bottom: 20px !important;
+              text-align: center !important;
+            ">Your Summer Selection</h2>
+            <div class="fh-lv-cart-items" style="
+              max-height: 200px !important;
+              overflow-y: auto !important;
+            "></div>
+            <div class="fh-lv-cart-footer" style="
+              margin-top: 20px !important;
+              padding-top: 16px !important;
+              border-top: 1px solid #E8E0D5 !important;
+            ">
+              <div class="fh-lv-cart-buttons" style="
+                display: flex !important;
+                gap: 12px !important;
+                justify-content: center !important;
+              ">
+                <button class="fh-lv-button fh-lv-continue-shopping" style="
+                  background: rgba(139, 115, 85, 0.2) !important;
+                  color: #8B7355 !important;
+                  border: 1px solid #8B7355 !important;
+                  padding: 14px 28px !important;
+                  font-size: 14px !important;
+                  font-weight: 600 !important;
+                  letter-spacing: 1px !important;
+                  border-radius: 25px !important;
+                  cursor: pointer !important;
+                  transition: all 0.3s ease !important;
+                  font-family: inherit !important;
+                  text-transform: uppercase !important;
+                ">Continue Shopping</button>
+                <button class="fh-lv-button fh-lv-shop-site" style="
+                  background: #D7C5AD !important;
+                  color: #2B2B2B !important;
+                  border: none !important;
+                  padding: 14px 28px !important;
+                  font-size: 14px !important;
+                  font-weight: 600 !important;
+                  letter-spacing: 1px !important;
+                  border-radius: 25px !important;
+                  cursor: pointer !important;
+                  transition: all 0.3s ease !important;
+                  font-family: inherit !important;
+                  text-transform: uppercase !important;
+                ">Shop on LouisVuitton.com</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    `;
+  }
+
+  initializeLouisVuittonInteractivity(wrapper, context) {
+    const destinationButtons = wrapper.querySelectorAll('.fh-lv-destination-button');
+    const cartIcon = wrapper.querySelector('.fh-lv-cart-icon');
+    const backButton = wrapper.querySelector('.fh-lv-back-button');
+    const continueShoppingButton = wrapper.querySelector('.fh-lv-continue-shopping');
+    const shopSiteButton = wrapper.querySelector('.fh-lv-shop-site');
+    const destinationsButton = wrapper.querySelector('.fh-lv-destinations-btn');
+
+    // Show destinations screen
+    if (destinationsButton) {
+      destinationsButton.addEventListener('click', () => {
+        this.showLouisVuittonScreen(wrapper, 'destination');
+        context.currentScreen = 'destination';
+      });
+    }
+
+    // Destination selection
+    destinationButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        const destination = button.getAttribute('data-destination');
+        this.showLouisVuittonProducts(wrapper, destination, context);
+        context.selectedDestination = destination;
+        context.currentScreen = 'product';
+      });
+      
+      // Hover effects
+      button.addEventListener('mouseenter', () => {
+        button.style.borderColor = '#D7C5AD';
+        button.style.background = 'rgba(215, 197, 173, 0.1)';
+        button.style.transform = 'translateY(-2px)';
+      });
+      
+      button.addEventListener('mouseleave', () => {
+        button.style.borderColor = '#E8E0D5';
+        button.style.background = 'rgba(255, 255, 255, 0.8)';
+        button.style.transform = 'translateY(0)';
+      });
+    });
+
+    // Cart functionality
+    if (cartIcon) {
+      cartIcon.addEventListener('click', () => {
+        if (context.cart.length > 0) {
+          this.showLouisVuittonCart(wrapper, context);
+          context.currentScreen = 'cart';
+        }
+      });
+    }
+
+    // Back button
+    if (backButton) {
+      backButton.addEventListener('click', () => {
+        this.showLouisVuittonScreen(wrapper, 'destination');
+        context.currentScreen = 'destination';
+      });
+    }
+
+    // Continue shopping
+    if (continueShoppingButton) {
+      continueShoppingButton.addEventListener('click', () => {
+        this.showLouisVuittonScreen(wrapper, 'destination');
+        context.currentScreen = 'destination';
+      });
+    }
+
+    // Shop site button
+    if (shopSiteButton) {
+      shopSiteButton.addEventListener('click', () => {
+        window.open('https://louisvuitton.com', '_blank');
+      });
+    }
+
+    // Initialize cart display
+    this.updateLouisVuittonCartDisplay(wrapper, context);
+  }
+
+  showLouisVuittonScreen(wrapper, screenType) {
+    const screens = wrapper.querySelectorAll('.fh-lv-screen');
+    screens.forEach(screen => {
+      screen.style.opacity = '0';
+      screen.style.transform = 'translateX(100%)';
+    });
+
+    const targetScreen = wrapper.querySelector(`.fh-lv-${screenType}-screen`);
+    if (targetScreen) {
+      setTimeout(() => {
+        targetScreen.style.opacity = '1';
+        targetScreen.style.transform = 'translateX(0)';
+      }, 100);
+    }
+  }
+
+  showLouisVuittonProducts(wrapper, destination, context) {
+    const productsGrid = wrapper.querySelector('.fh-lv-products-grid');
+    const subtitle = wrapper.querySelector('.fh-lv-product-subtitle');
+    
+    if (subtitle) {
+      subtitle.textContent = `Style your wardrobe for ${context.destinationNames[destination]}`;
+    }
+    
+    if (productsGrid) {
+      productsGrid.innerHTML = '';
+      
+      const destinationProducts = context.products[destination];
+      destinationProducts.forEach((product, index) => {
+        const productCard = document.createElement('div');
+        productCard.className = 'fh-lv-product-card';
+        productCard.style.cssText = `
+          background: rgba(255, 255, 255, 0.6) !important;
+          border-radius: 8px !important;
+          padding: 12px !important;
+          text-align: center !important;
+          backdrop-filter: blur(10px) !important;
+          border: 1px solid rgba(232, 224, 213, 0.5) !important;
+          animation: fadeInUp 0.6s ease forwards !important;
+          animation-delay: ${index * 0.1}s !important;
+          display: flex !important;
+          flex-direction: column !important;
+          height: 100% !important;
+        `;
+        
+        productCard.innerHTML = `
+          <img class="fh-lv-product-image" 
+               src="${product.image}" 
+               alt="${product.name}"
+               style="
+                 width: 100px !important;
+                 height: 100px !important;
+                 object-fit: cover !important;
+                 border-radius: 6px !important;
+                 margin-bottom: 8px !important;
+                 display: block !important;
+                 align-self: center !important;
+               "
+               onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+          <div class="fh-lv-image-placeholder" style="
+            display: none !important;
+            width: 100px !important;
+            height: 100px !important;
+            background: linear-gradient(135deg, rgba(215,197,173,0.4), rgba(215,197,173,0.2)) !important;
+            border-radius: 6px !important;
+            flex-direction: column !important;
+            align-items: center !important;
+            justify-content: center !important;
+            color: #8B7355 !important;
+            font-size: 9px !important;
+            text-align: center !important;
+            margin-bottom: 8px !important;
+            border: 2px dashed rgba(139,115,85,0.3) !important;
+            align-self: center !important;
+          ">
+            <div style="font-weight: 600 !important; margin-bottom: 3px !important;">LOUIS VUITTON</div>
+            <div style="line-height: 1.1 !important;">${product.name}</div>
+          </div>
+          <div class="fh-lv-product-info" style="
+            flex: 1 !important;
+            display: flex !important;
+            flex-direction: column !important;
+            justify-content: space-between !important;
+          ">
+            <div>
+              <div class="fh-lv-product-name" style="
+                font-size: 11px !important;
+                font-weight: 600 !important;
+                color: #2B2B2B !important;
+                margin-bottom: 4px !important;
+                line-height: 1.2 !important;
+              ">${product.name}</div>
+              ${product.price ? `<div class="fh-lv-product-price" style="
+                font-size: 10px !important;
+                color: #8B7355 !important;
+                margin-bottom: 8px !important;
+              ">${product.price}</div>` : ''}
+            </div>
+            <button class="fh-lv-add-to-cart" data-product-id="${product.id}" style="
+              background: #2B2B2B !important;
+              color: white !important;
+              border: none !important;
+              padding: 6px 12px !important;
+              font-size: 10px !important;
+              border-radius: 12px !important;
+              cursor: pointer !important;
+              transition: all 0.3s ease !important;
+              font-family: inherit !important;
+              text-transform: uppercase !important;
+              letter-spacing: 0.5px !important;
+              margin-top: auto !important;
+            ">Add to Cart</button>
+          </div>
+        `;
+        
+        // Add to cart functionality
+        const addButton = productCard.querySelector('.fh-lv-add-to-cart');
+        addButton.addEventListener('click', () => {
+          this.addToLouisVuittonCart(wrapper, product, context);
+          addButton.textContent = '✓ Added';
+          addButton.style.background = '#4CAF50';
+          addButton.disabled = true;
+        });
+
+        // Hover effect for add button
+        addButton.addEventListener('mouseenter', () => {
+          if (!addButton.disabled) {
+            addButton.style.background = '#1A1A1A';
+          }
+        });
+        addButton.addEventListener('mouseleave', () => {
+          if (!addButton.disabled) {
+            addButton.style.background = '#2B2B2B';
+          }
+        });
+        
+        productsGrid.appendChild(productCard);
+      });
+    }
+    
+    this.showLouisVuittonScreen(wrapper, 'product');
+  }
+
+  addToLouisVuittonCart(wrapper, product, context) {
+    if (!context.cart.find(item => item.id === product.id)) {
+      context.cart.push(product);
+      this.updateLouisVuittonCartDisplay(wrapper, context);
+    }
+  }
+
+  updateLouisVuittonCartDisplay(wrapper, context) {
+    const cartIcon = wrapper.querySelector('.fh-lv-cart-icon');
+    const cartCount = wrapper.querySelector('.fh-lv-cart-count');
+    
+    if (cartCount) {
+      cartCount.textContent = context.cart.length;
+    }
+    
+    if (cartIcon && context.cart.length > 0) {
+      cartIcon.style.opacity = '1';
+    } else if (cartIcon) {
+      cartIcon.style.opacity = '0';
+    }
+  }
+
+  showLouisVuittonCart(wrapper, context) {
+    const cartItems = wrapper.querySelector('.fh-lv-cart-items');
+    
+    if (cartItems) {
+      cartItems.innerHTML = '';
+      
+      if (context.cart.length === 0) {
+        cartItems.innerHTML = '<div style="text-align: center; color: #8B7355; padding: 40px;">Your cart is empty</div>';
+      } else {
+        context.cart.forEach(item => {
+          const cartItem = document.createElement('div');
+          cartItem.className = 'fh-lv-cart-item';
+          cartItem.style.cssText = `
+            display: flex !important;
+            align-items: center !important;
+            padding: 12px !important;
+            background: rgba(255, 255, 255, 0.6) !important;
+            border-radius: 8px !important;
+            margin-bottom: 8px !important;
+          `;
+          
+          cartItem.innerHTML = `
+            <img src="${item.image}" alt="${item.name}" style="
+              width: 60px !important;
+              height: 60px !important;
+              object-fit: cover !important;
+              border-radius: 4px !important;
+              margin-right: 12px !important;
+            " onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <div style="
+              display: none !important;
+              width: 60px !important;
+              height: 60px !important;
+              background: linear-gradient(135deg, rgba(215,197,173,0.4), rgba(215,197,173,0.2)) !important;
+              border-radius: 4px !important;
+              align-items: center !important;
+              justify-content: center !important;
+              color: #8B7355 !important;
+              font-size: 8px !important;
+              text-align: center !important;
+              margin-right: 12px !important;
+              border: 1px dashed rgba(139,115,85,0.3) !important;
+            ">LV</div>
+            <div style="flex: 1 !important;">
+              <div style="
+                font-size: 12px !important;
+                font-weight: 600 !important;
+                color: #2B2B2B !important;
+                margin-bottom: 4px !important;
+              ">${item.name}</div>
+              <div style="
+                font-size: 11px !important;
+                color: #8B7355 !important;
+              ">${item.price}</div>
+            </div>
+            <button class="fh-lv-remove-item" data-product-id="${item.id}" style="
+              background: none !important;
+              border: none !important;
+              color: #8B7355 !important;
+              cursor: pointer !important;
+              font-size: 16px !important;
+              padding: 4px !important;
+            ">×</button>
+          `;
+          
+          // Remove functionality
+          const removeButton = cartItem.querySelector('.fh-lv-remove-item');
+          removeButton.addEventListener('click', () => {
+            context.cart = context.cart.filter(cartItem => cartItem.id !== item.id);
+            this.updateLouisVuittonCartDisplay(wrapper, context);
+            this.showLouisVuittonCart(wrapper, context);
+          });
+          
+          cartItems.appendChild(cartItem);
+        });
+      }
+    }
+    
+    this.showLouisVuittonScreen(wrapper, 'cart');
+  }
+
+  addLouisVuittonStyles(wrapper) {
+    // Add Google Fonts link
+    const fontLink = document.createElement('link');
+    fontLink.rel = 'stylesheet';
+    fontLink.href = 'https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&display=swap';
+    document.head.appendChild(fontLink);
+
+    const style = document.createElement('style');
+    style.textContent = `
+      /* Font fallback for faster loading */
+      .fh-lv-container, .fh-lv-container * {
+        font-family: 'Playfair Display', Georgia, serif !important;
+      }
+      
+      /* CSS Reset for Louis Vuitton component */
+      .fh-lv-container * {
+        box-sizing: border-box !important;
+      }
+      
+      /* Reset specific elements that need it */
+      .fh-lv-container h1, .fh-lv-container h2, .fh-lv-container p, .fh-lv-container div {
+        margin: 0 !important;
+      }
+      
+      /* Ensure buttons and interactive elements maintain their padding */
+      .fh-lv-container button, .fh-lv-container .fh-lv-screen {
+        margin: 0 !important;
+      }
+      
+      /* Animations */
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      
+      /* Interactive hover effects */
+      .fh-lv-button:hover {
+        background: #C9B89A !important;
+        transform: translateY(-2px) !important;
+        box-shadow: 0 6px 20px rgba(215, 197, 173, 0.4) !important;
+      }
+      
+      .fh-lv-cart-icon:hover {
+        background: rgba(215, 197, 173, 0.4) !important;
+      }
+      
+      .fh-lv-back-button:hover {
+        background: rgba(139, 115, 85, 0.3) !important;
+      }
+      
+      /* Ensure component isolation */
+      #fh-louis-vuitton-endless-summer {
+        contain: layout style paint size !important;
+        isolation: isolate !important;
+        z-index: 1000 !important;
+      }
+      
+      /* Force component dimensions */
+      #fh-louis-vuitton-endless-summer,
+      .fh-lv-container {
+        display: block !important;
+        position: relative !important;
+        overflow: hidden !important;
       }
     `;
     wrapper.appendChild(style);

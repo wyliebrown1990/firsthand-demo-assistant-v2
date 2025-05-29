@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Louis Vuitton Endless Summer Component Test</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background: #f5f5f5;
+        }
+        .test-container {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        .component-wrapper {
+            display: flex;
+            justify-content: center;
+            margin: 20px 0;
+        }
+        .debug-info {
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 4px;
+            padding: 10px;
+            margin: 10px 0;
+            font-family: monospace;
+            font-size: 12px;
+        }
+        .test-status {
+            padding: 10px;
+            border-radius: 4px;
+            margin: 10px 0;
+        }
+        .success { background: #d4edda; border: 1px solid #c3e6cb; color: #155724; }
+        .error { background: #f8d7da; border: 1px solid #f5c6cb; color: #721c24; }
+        .warning { background: #fff3cd; border: 1px solid #ffeaa7; color: #856404; }
+    </style>
+</head>
+<body>
+    <div class="test-container">
+        <h1>Louis Vuitton Endless Summer Component Test</h1>
+        <p>This page tests the Louis Vuitton Endless Summer web component independently.</p>
+        
+        <div id="test-status" class="test-status">
+            <div id="load-status">Loading component...</div>
+        </div>
+
+        <div class="component-wrapper">
+            <louis-vuitton-endless-summer id="lv-component"></louis-vuitton-endless-summer>
+        </div>
+
+        <div class="debug-info">
+            <strong>Component Debug Info:</strong>
+            <div id="debug-output"></div>
+        </div>
+    </div>
+
+    <script type="module">
+        const debugOutput = document.getElementById('debug-output');
+        const loadStatus = document.getElementById('load-status');
+        const testStatus = document.getElementById('test-status');
+
+        function updateStatus(message, type = 'warning') {
+            loadStatus.textContent = message;
+            testStatus.className = `test-status ${type}`;
+        }
+
+        function addDebugInfo(info) {
+            debugOutput.innerHTML += `<div>${info}</div>`;
+        }
+
+        try {
+            addDebugInfo('Attempting to load Louis Vuitton component...');
+            
+            // Import the component
+            const module = await import('./ad-unit-library/components/fashion/louis-vuitton/luxury-travel-sites/louis-vuitton-endless-summer.js');
+            addDebugInfo('✓ Component module loaded successfully');
+
+            // Check if custom element is defined
+            const componentElement = document.getElementById('lv-component');
+            
+            // Wait a moment for the component to initialize
+            setTimeout(() => {
+                if (componentElement.shadowRoot) {
+                    addDebugInfo('✓ Shadow DOM created successfully');
+                    const adContainer = componentElement.shadowRoot.querySelector('.lv-ad-container');
+                    if (adContainer) {
+                        addDebugInfo('✓ Component rendered successfully');
+                        updateStatus('Component loaded and rendered successfully!', 'success');
+                    } else {
+                        addDebugInfo('✗ Component container not found in shadow DOM');
+                        updateStatus('Component loaded but not rendered properly', 'warning');
+                    }
+                } else {
+                    addDebugInfo('✗ Shadow DOM not created');
+                    updateStatus('Component failed to initialize shadow DOM', 'error');
+                }
+            }, 1000);
+
+        } catch (error) {
+            addDebugInfo(`✗ Error loading component: ${error.message}`);
+            updateStatus(`Failed to load component: ${error.message}`, 'error');
+            console.error('Component loading error:', error);
+        }
+
+        // Add a test button to manually test component functionality
+        setTimeout(() => {
+            const testButton = document.createElement('button');
+            testButton.textContent = 'Test Component Interaction';
+            testButton.style.cssText = 'margin: 10px; padding: 10px 20px; font-size: 14px;';
+            testButton.onclick = () => {
+                const component = document.getElementById('lv-component');
+                if (component && component.shadowRoot) {
+                    const heroButton = component.shadowRoot.querySelector('[data-action="show-destinations"]');
+                    if (heroButton) {
+                        heroButton.click();
+                        addDebugInfo('✓ Clicked destination selection button');
+                    } else {
+                        addDebugInfo('✗ Could not find destination button');
+                    }
+                } else {
+                    addDebugInfo('✗ Component not properly initialized');
+                }
+            };
+            document.querySelector('.test-container').appendChild(testButton);
+        }, 1500);
+
+    </script>
+</body>
+</html>

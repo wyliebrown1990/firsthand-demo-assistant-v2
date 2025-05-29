@@ -52,6 +52,13 @@
       "description": "Video games, gaming platforms, and gaming services",
       "examples": ["Xbox", "PlayStation", "Nintendo", "Steam", "Epic Games"],
       "commonKeywords": ["games", "gaming", "console", "pc", "rpg", "action", "adventure", "multiplayer"]
+    },
+    {
+      "id": "fashion",
+      "name": "Fashion",
+      "description": "Luxury fashion brands, apparel, and accessories",
+      "examples": ["Louis Vuitton", "Gucci", "Chanel", "Prada", "Hermès", "Dior"],
+      "commonKeywords": ["luxury", "fashion", "style", "designer", "handbag", "accessories", "apparel", "couture"]
     }
   ],
 
@@ -264,6 +271,11 @@
       "id": "gaming",
       "name": "Gaming",
       "tags": ["video-games", "console", "pc-gaming", "rpg", "action", "adventure", "multiplayer", "esports"]
+    },
+    {
+      "id": "fashion-luxury",
+      "name": "Fashion & Luxury",
+      "tags": ["luxury", "designer", "fashion", "style", "handbags", "accessories", "couture", "travel-fashion"]
     }
   ],
 

@@ -1,0 +1,202 @@
+{
+  "componentId": "louis-vuitton-endless-summer",
+  "name": "Louis Vuitton Endless Summer",
+  "version": "1.0.0",
+  "lastUpdated": "2025-05-29",
+  "description": "An ad unit for luxury travel sites that allows users to shop for location specific products from LV.",
+  
+  "metadata": {
+    "advertiser": {
+      "name": "Louis Vuitton",
+      "vertical": "fashion",
+      "brand": "Louis Vuitton"
+    },
+    "taxonomy": {
+      "advertiserVertical": "fashion",
+      "adUnitType": "recommendation-engine",
+      "contentCategory": "fashion-luxury",
+      "interactionLevel": "high"
+    },
+    "targeting": {
+      "demographics": ["age-25-34", "age-35-44", "income-high", "education-college"],
+      "interests": ["fashion-conscious", "travel-frequent", "luxury-buyer"],
+      "behavior": ["online-shopper", "luxury-buyer"]
+    },
+    "placement": {
+      "dimensions": {
+        "width": 600,
+        "height": 400
+      },
+      "category": "custom",
+      "aspectRatio": "3:2"
+    },
+    "compatibility": {
+      "publisherVerticals": ["lifestyle", "travel"],
+      "sampleSites": ["cntraveler.com", "vogue.com", "elle.com"],
+      "deviceTypes": ["desktop", "tablet"],
+      "browsers": ["chrome", "firefox", "safari", "edge"]
+    }
+  },
+  
+  "configuration": {
+    "customizable": {
+      "recommendations": false,
+      "destinations": false,
+      "products": false
+    },
+    "tracking": {
+      "analytics": false,
+      "clickTracking": false,
+      "stageTracking": false
+    },
+    "integration": {
+      "externalSystems": false,
+      "apiRequired": false
+    }
+  },
+  
+  "assets": {
+    "fonts": [
+      {
+        "name": "Playfair Display",
+        "source": "google-fonts",
+        "weights": ["400", "600", "700"],
+        "url": "https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&display=swap"
+      }
+    ],
+    "images": {
+      "hosted": "external",
+      "fallbackStrategy": "branded-placeholder",
+      "products": [
+        {
+          "destination": "turkey",
+          "items": [
+            {
+              "name": "Scallop Stripe Cardigan",
+              "url": "https://i.ibb.co/Z6n9byrZ/Chat-GPT-Image-May-29-2025-09-11-15-AM.png"
+            },
+            {
+              "name": "Neverfull MM",
+              "url": "https://i.ibb.co/j94tbr6x/Chat-GPT-Image-May-29-2025-09-11-20-AM.png"
+            }
+          ]
+        },
+        {
+          "destination": "france",
+          "items": [
+            {
+              "name": "Silk Sleeveless Top with Monogram Tie",
+              "url": "https://us.louisvuitton.com/images/is/image/lv/1/PP_VP_L/louis-vuitton-scallop-stripe-cardigan%20--FTKC23VRF631_PM1_Worn%20view.png?wid=2400&hei=2400"
+            },
+            {
+              "name": "LV Isola Flat Sandals",
+              "url": "https://us.louisvuitton.com/images/is/image/lv/1/PP_VP_L/louis-vuitton-neverfull-mm--M13192_PM2_Front%20view.png?wid=2400&hei=2400"
+            }
+          ]
+        },
+        {
+          "destination": "portugal",
+          "items": [
+            {
+              "name": "LV x TM Twist PM",
+              "url": "https://us.louisvuitton.com/images/is/image/lv/1/PP_VP_L/louis-vuitton-lv-x-tm-twist-pm--M13239_PM2_Front%20view.png?wid=2400&hei=2400"
+            },
+            {
+              "name": "Swing Open Back Ballerina",
+              "url": "https://us.louisvuitton.com/images/is/image/lv/1/PP_VP_L/louis-vuitton-swing-open-back-ballerina--ATP001RA95_PM2_Front%20view.png?wid=2400&hei=2400"
+            }
+          ]
+        },
+        {
+          "destination": "italy",
+          "items": [
+            {
+              "name": "Scarf Print Shirt Dress",
+              "url": "https://us.louisvuitton.com/images/is/image/lv/1/PP_VP_L/louis-vuitton-scarf-print-shirt-dress--FTDR42VIO570_PM2_Front%20view.png?wid=2400&hei=2400"
+            },
+            {
+              "name": "LV Mare Wedge Sandal",
+              "url": "https://us.louisvuitton.com/images/is/image/lv/1/PP_VP_L/louis-vuitton-lv-mare-wedge-sandal--ATG008RA95_PM2_Front%20view.png?wid=2400&hei=2400"
+            }
+          ]
+        }
+      ]
+    },
+    "colors": {
+      "primary": {
+        "brand": "#D7C5AD",
+        "brandDark": "#C9B89A",
+        "text": "#2B2B2B",
+        "textSecondary": "#8B7355"
+      },
+      "background": {
+        "gradient": ["#FAF8F5", "#F5F1EB"],
+        "accent": "#E8E0D5"
+      },
+      "interactive": {
+        "hover": "#1A1A1A",
+        "success": "#4CAF50"
+      }
+    }
+  },
+  
+  "user_experience": {
+    "flow": [
+      {
+        "step": 1,
+        "name": "Hero",
+        "description": "Welcome screen with campaign introduction"
+      },
+      {
+        "step": 2,
+        "name": "Destination Selection",
+        "description": "User selects luxury European destination"
+      },
+      {
+        "step": 3,
+        "name": "Product Recommendations",
+        "description": "Location-specific product curation display"
+      },
+      {
+        "step": 4,
+        "name": "Cart Management",
+        "description": "Shopping cart with items and checkout CTA"
+      }
+    ],
+    "interactionTypes": [
+      "button-clicks",
+      "destination-selection",
+      "add-to-cart",
+      "cart-management"
+    ],
+    "accessibility": {
+      "keyboardNavigation": true,
+      "fallbackContent": true,
+      "altText": true
+    }
+  },
+  
+  "performance": {
+    "loadTime": "< 2s",
+    "fileSize": "< 50KB",
+    "dependencies": ["google-fonts"],
+    "cacheStrategy": "standard"
+  },
+  
+  "testing": {
+    "testCases": [
+      "Hero screen display",
+      "Destination selection functionality",
+      "Product display and cart interaction",
+      "External link functionality",
+      "Image fallback handling",
+      "Responsive behavior"
+    ],
+    "browserSupport": {
+      "chrome": "90+",
+      "firefox": "88+",
+      "safari": "14+",
+      "edge": "90+"
+    }
+  }
+}

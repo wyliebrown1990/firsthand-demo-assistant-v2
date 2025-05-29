@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Louis Vuitton Component Injection Test</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background: #f5f5f5;
+        }
+        .test-container {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        .injection-target {
+            border: 2px dashed #ccc;
+            min-height: 450px;
+            padding: 20px;
+            margin: 20px 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #fafafa;
+        }
+        .debug-info {
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 4px;
+            padding: 10px;
+            margin: 10px 0;
+            font-family: monospace;
+            font-size: 12px;
+        }
+        .test-status {
+            padding: 10px;
+            border-radius: 4px;
+            margin: 10px 0;
+        }
+        .success { background: #d4edda; border: 1px solid #c3e6cb; color: #155724; }
+        .error { background: #f8d7da; border: 1px solid #f5c6cb; color: #721c24; }
+        .warning { background: #fff3cd; border: 1px solid #ffeaa7; color: #856404; }
+    </style>
+</head>
+<body>
+    <div class="test-container">
+        <h1>Louis Vuitton Component Injection Test</h1>
+        <p>This page tests the Louis Vuitton component using the shadow DOM injector pattern.</p>
+        
+        <div id="test-status" class="test-status warning">
+            <div id="load-status">Loading component...</div>
+        </div>
+
+        <div class="injection-target" id="injection-target">
+            Component will appear here
+        </div>
+
+        <div class="debug-info">
+            <strong>Debug Information:</strong>
+            <div id="debug-output"></div>
+        </div>
+
+        <button onclick="testComponent()">Load Component</button>
+        <button onclick="testInteraction()">Test Interaction</button>
+    </div>
+
+    <script>
+        const debugOutput = document.getElementById('debug-output');
+        const loadStatus = document.getElementById('load-status');
+        const testStatus = document.getElementById('test-status');
+
+        function updateStatus(message, type = 'warning') {
+            loadStatus.textContent = message;
+            testStatus.className = `test-status ${type}`;
+        }
+
+        function addDebugInfo(info) {
+            debugOutput.innerHTML += `<div>${new Date().toLocaleTimeString()}: ${info}</div>`;
+        }
+
+        // Simulate the shadow DOM injector approach
+        class TestShadowDOMInjector {
+            renderLouisVuittonComponent(wrapper, componentClass, dimensions) {
+                // Style the wrapper to ensure proper containment
+                wrapper.style.cssText = `
+                  display: block !important;
+                  width: ${dimensions.width}px !important;
+                  height: ${dimensions.height}px !important;
+                  max-width: ${dimensions.width}px !important;
+                  max-height: ${dimensions.height}px !important;
+                  overflow: hidden !important;
+                  position: relative !important;
+                  contain: layout style paint size !important;
+                  isolation: isolate !important;
+                `;
+
+                const context = {
+                    currentScreen: 'hero',
+                    selectedDestination: '',
+                    cart: [],
+                    destinationNames: {
+                        turkey: 'Oludeniz Beach, Turkey',
+                        france: 'Bay of Biscay, Biarritz, France',
+                        portugal: 'Praia da Marinha, Algarve, Portugal',
+                        italy: 'San Fruttuoso, Liguria, Italy'
+                    }
+                };
+
+                const template = this.getLouisVuittonTemplate(dimensions);
+                wrapper.innerHTML = template;
+                this.addLouisVuittonStyles(wrapper);
+                this.initializeLouisVuittonInteractivity(wrapper, context);
+            }
+
+            getLouisVuittonTemplate(dimensions) {
+                return `
+                  <div class="fh-lv-container fh-ad-unit-container" id="fh-louis-vuitton-endless-summer" style="
+                    all: initial;
+                    box-sizing: border-box !important;
+                    font-family: 'Playfair Display', Georgia, serif !important;
+                    position: relative !important;
+                    width: ${dimensions.width}px !important;
+                    height: ${dimensions.height}px !important;
+                    min-width: ${dimensions.width}px !important;
+                    min-height: ${dimensions.height}px !important;
+                    max-width: ${dimensions.width}px !important;
+                    max-height: ${dimensions.height}px !important;
+                    background: linear-gradient(135deg, #FAF8F5 0%, #F5F1EB 100%) !important;
+                    border: 1px solid #E8E0D5 !important;
+                    border-radius: 8px !important;
+                    overflow: hidden !important;
+                    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1) !important;
+                    color: #2B2B2B !important;
+                    margin: 0 !important;
+                    padding: 0 !important;
+                    cursor: default !important;
+                    display: block !important;
+                    float: none !important;
+                    clear: both !important;
+                    contain: layout style paint size !important;
+                    isolation: isolate !important;
+                  ">
+                    <!-- Hero Screen -->
+                    <div class="fh-lv-screen fh-lv-hero-screen" style="
+                      position: absolute !important;
+                      top: 0 !important;
+                      left: 0 !important;
+                      width: 100% !important;
+                      height: 100% !important;
+                      padding: 20px !important;
+                      display: flex !important;
+                      flex-direction: column !important;
+                      justify-content: center !important;
+                      align-items: center !important;
+                      text-align: center !important;
+                      opacity: 1 !important;
+                      transform: translateX(0) !important;
+                    ">
+                      <div class="fh-lv-logo" style="
+                        position: absolute !important;
+                        top: 20px !important;
+                        left: 20px !important;
+                        font-size: 18px !important;
+                        font-weight: 700 !important;
+                        color: #2B2B2B !important;
+                        letter-spacing: 2px !important;
+                      ">LOUIS VUITTON</div>
+                      <div class="fh-lv-campaign" style="
+                        position: absolute !important;
+                        top: 42px !important;
+                        left: 20px !important;
+                        font-size: 12px !important;
+                        color: #8B7355 !important;
+                        font-style: italic !important;
+                      ">Summer Odyssey</div>
+                      
+                      <h1 class="fh-lv-hero-title" style="
+                        font-size: 32px !important;
+                        font-weight: 600 !important;
+                        color: #2B2B2B !important;
+                        margin-bottom: 16px !important;
+                        line-height: 1.2 !important;
+                      ">Where Will Summer Take You?</h1>
+                      <p class="fh-lv-hero-subtitle" style="
+                        font-size: 16px !important;
+                        color: #8B7355 !important;
+                        margin-bottom: 32px !important;
+                        max-width: 400px !important;
+                        line-height: 1.4 !important;
+                      ">Style your wardrobe for Europe's most luxurious coasts.</p>
+                      <button class="fh-lv-button fh-lv-destinations-btn" style="
+                        background: #D7C5AD !important;
+                        color: #2B2B2B !important;
+                        border: none !important;
+                        padding: 14px 28px !important;
+                        font-size: 14px !important;
+                        font-weight: 600 !important;
+                        letter-spacing: 1px !important;
+                        border-radius: 25px !important;
+                        cursor: pointer !important;
+                        font-family: inherit !important;
+                        text-transform: uppercase !important;
+                      ">Choose Your Destination</button>
+                    </div>
+                  </div>
+                `;
+            }
+
+            addLouisVuittonStyles(wrapper) {
+                const fontLink = document.createElement('link');
+                fontLink.rel = 'stylesheet';
+                fontLink.href = 'https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&display=swap';
+                document.head.appendChild(fontLink);
+
+                const style = document.createElement('style');
+                style.textContent = `
+                  .fh-lv-container, .fh-lv-container * {
+                    font-family: 'Playfair Display', Georgia, serif !important;
+                  }
+                  
+                  .fh-lv-container * {
+                    box-sizing: border-box !important;
+                  }
+                  
+                  #fh-louis-vuitton-endless-summer {
+                    contain: layout style paint size !important;
+                    isolation: isolate !important;
+                    z-index: 1000 !important;
+                  }
+                  
+                  .fh-lv-button:hover {
+                    background: #C9B89A !important;
+                    transform: translateY(-2px) !important;
+                    box-shadow: 0 6px 20px rgba(215, 197, 173, 0.4) !important;
+                  }
+                `;
+                wrapper.appendChild(style);
+            }
+
+            initializeLouisVuittonInteractivity(wrapper, context) {
+                const destinationsButton = wrapper.querySelector('.fh-lv-destinations-btn');
+                if (destinationsButton) {
+                    destinationsButton.addEventListener('click', () => {
+                        addDebugInfo('✓ Destination button clicked - component is interactive!');
+                        updateStatus('Component is working and interactive!', 'success');
+                    });
+                }
+            }
+        }
+
+        const testInjector = new TestShadowDOMInjector();
+
+        function testComponent() {
+            try {
+                addDebugInfo('Starting component test...');
+                const target = document.getElementById('injection-target');
+                
+                // Clear the target
+                target.innerHTML = '';
+                target.style.cssText = 'border: 2px dashed #ccc; min-height: 450px; padding: 20px; margin: 20px 0; display: flex; align-items: center; justify-content: center; background: #fafafa;';
+                
+                // Create wrapper like the real injector does
+                const wrapper = document.createElement('div');
+                wrapper.className = 'firsthand-component-wrapper';
+                
+                const dimensions = { width: 600, height: 400 };
+                
+                // Inject the component
+                testInjector.renderLouisVuittonComponent(wrapper, null, dimensions);
+                target.appendChild(wrapper);
+                
+                addDebugInfo('✓ Component template injected');
+                addDebugInfo(`✓ Component dimensions: ${dimensions.width}x${dimensions.height}`);
+                
+                // Check if component rendered
+                const lvContainer = wrapper.querySelector('#fh-louis-vuitton-endless-summer');
+                if (lvContainer) {
+                    addDebugInfo('✓ Louis Vuitton container found');
+                    const computedStyle = window.getComputedStyle(lvContainer);
+                    addDebugInfo(`✓ Container size: ${computedStyle.width} x ${computedStyle.height}`);
+                    addDebugInfo(`✓ Container background: ${computedStyle.background || computedStyle.backgroundColor}`);
+                    updateStatus('Component loaded successfully!', 'success');
+                } else {
+                    addDebugInfo('✗ Louis Vuitton container not found');
+                    updateStatus('Component failed to render', 'error');
+                }
+                
+            } catch (error) {
+                addDebugInfo(`✗ Error: ${error.message}`);
+                updateStatus(`Error: ${error.message}`, 'error');
+            }
+        }
+
+        function testInteraction() {
+            const button = document.querySelector('.fh-lv-destinations-btn');
+            if (button) {
+                button.click();
+            } else {
+                addDebugInfo('✗ Destination button not found');
+            }
+        }
+
+        // Auto-load component on page load
+        window.addEventListener('load', () => {
+            setTimeout(testComponent, 1000);
+        });
+    </script>
+</body>
+</html>

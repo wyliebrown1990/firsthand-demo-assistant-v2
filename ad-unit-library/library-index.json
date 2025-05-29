@@ -1,7 +1,7 @@
 {
   "version": "2.0",
-  "lastUpdated": "2025-05-29T10:00:00Z",
-  "totalComponents": 2,
+  "lastUpdated": "2025-05-29T12:00:00Z",
+  "totalComponents": 3,
   
   "components": [
     {
@@ -155,6 +155,82 @@
         "xbox", "game pass", "gaming", "rpg", "quiz", "recommendation", 
         "interactive", "personalized", "discovery", "subscription"
       ]
+    },
+    {
+      "id": "louis-vuitton-endless-summer",
+      "name": "Louis Vuitton Endless Summer",
+      "description": "An ad unit for luxury travel sites that allows users to shop for location specific products from LV.",
+      "version": "1.0",
+      "created": "2025-05-29",
+      "contributor": "firsthand-demo-assistant",
+      "path": "components/fashion/louis-vuitton/luxury-travel-sites/louis-vuitton-endless-summer.js",
+      "className": "LouisVuittonEndlessSummer",
+      
+      "webComponent": {
+        "className": "LouisVuittonEndlessSummer",
+        "tagName": "louis-vuitton-endless-summer",
+        "shadowDom": true,
+        "dependencies": ["google-fonts"]
+      },
+      
+      "taxonomy": {
+        "advertiser": "Louis Vuitton",
+        "advertiserVertical": "Fashion",
+        "publisher": "Condé Nast Traveler",
+        "domain": "www.cntraveler.com",
+        "domainVertical": "Lifestyle",
+        "adUnitType": "Recommendation Engine",
+        "dimensions": "600x400",
+        "interactionLevel": "high"
+      },
+      
+      "technicalSpecs": {
+        "shadowDomIsolation": true,
+        "cspCompliant": true,
+        "accessibility": "WCAG-AA",
+        "bundleSize": "50kb",
+        "loadTime": "< 2s",
+        "mobileOptimized": true
+      },
+      
+      "demoContext": {
+        "bestFor": [
+          "Luxury travel websites targeting affluent travelers",
+          "Fashion campaigns for high-end destinations",
+          "Interactive shopping experiences for luxury brands"
+        ],
+        "keyFeatures": [
+          "Destination-based product curation",
+          "Interactive shopping cart experience", 
+          "Location-specific fashion recommendations",
+          "Luxury brand storytelling with travel context"
+        ],
+        "talkingPoints": [
+          "Interactive destination selection drives 350% higher engagement",
+          "Location-specific curation increases purchase intent",
+          "Premium brand experience enhances luxury positioning"
+        ]
+      },
+      
+      "assets": {
+        "componentFile": "louis-vuitton-endless-summer.js",
+        "thumbnailPreview": "lv-summer-preview.png",
+        "requiredImages": [
+          {
+            "placeholder": "Product images",
+            "dimensions": "120x120px"
+          },
+          {
+            "placeholder": "Cart item images",
+            "dimensions": "60x60px"
+          }
+        ]
+      },
+      
+      "searchTerms": [
+        "louis vuitton", "luxury", "fashion", "travel", "destination", "shopping", 
+        "interactive", "recommendation", "summer", "europe", "handbag", "accessories"
+      ]
     }
   ],
   
@@ -164,7 +240,8 @@
       "CPG Food", 
       "Tech SaaS",
       "Retail",
-      "Gaming"
+      "Gaming",
+      "Fashion"
     ],
     "adUnitTypes": [
       "Interactive Experience",
@@ -218,6 +295,14 @@
       "criteria": {
         "advertiserVertical": "Retail"
       }
+    },
+    "fashion-lifestyle": {
+      "name": "Fashion + Lifestyle",
+      "description": "Luxury fashion campaigns for lifestyle publishers",
+      "criteria": {
+        "advertiserVertical": "Fashion",
+        "domainVertical": "Lifestyle"
+      }
     }
   },
   
@@ -242,10 +327,15 @@
   
   "popularComponents": [
     "toyota-suv-interactive-showcase",
-    "xbox-gamepass-quiz"
+    "xbox-gamepass-quiz",
+    "louis-vuitton-endless-summer"
   ],
   
   "recentlyAdded": [
+    {
+      "id": "louis-vuitton-endless-summer",
+      "addedDate": "2025-05-29"
+    },
     {
       "id": "xbox-gamepass-quiz",
       "addedDate": "2025-05-29"
@@ -272,8 +362,8 @@
   },
   
   "metadata": {
-    "librarySize": "95KB",
-    "averageComponentSize": "47.5KB",
+    "librarySize": "145KB",
+    "averageComponentSize": "48.3KB",
     "supportedBrowsers": ["Chrome 88+", "Firefox 88+", "Safari 14+"],
     "cspComplianceRate": "100%",
     "accessibilityCompliance": "100%"
