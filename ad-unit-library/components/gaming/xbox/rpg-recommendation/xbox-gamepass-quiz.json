@@ -1,0 +1,124 @@
+{
+  "id": "xbox-gamepass-quiz",
+  "name": "Xbox Game Pass Interactive Quiz",
+  "description": "An ad unit for gaming websites with content covering RPGs. The goal is to help end users discover their next favorite RPG.",
+  "version": "1.0",
+  "created": "2025-05-29",
+  "lastModified": "2025-05-29",
+  "author": "Firsthand Demo Assistant",
+  
+  "taxonomy": {
+    "advertiserVertical": "Gaming",
+    "adUnitType": "Recommendation Engine",
+    "dimensions": {
+      "width": 600,
+      "height": 400,
+      "name": "Interactive Widget"
+    },
+    "interactionLevel": "high",
+    "contentCategory": "gaming"
+  },
+  
+  "targeting": {
+    "publisherVerticals": ["technology", "entertainment"],
+    "targetSites": ["pcgamer.com", "ign.com", "gamespot.com", "polygon.com"],
+    "demographics": ["age-18-24", "age-25-34", "age-35-44"],
+    "interests": ["gaming", "tech-early-adopter", "entertainment"],
+    "behavior": ["online-shopper", "mobile-heavy-user"]
+  },
+  
+  "technical": {
+    "componentClass": "XboxGamePassQuiz",
+    "elementTag": "xbox-gamepass-quiz",
+    "shadowDOM": true,
+    "dependencies": [],
+    "externalAssets": [
+      "https://i.ibb.co/5X0GGgD5/xbox-white-1.png",
+      "https://i.ibb.co/bRNh9NFk/gaming-1.jpg"
+    ],
+    "compatibilityMode": "modern",
+    "mobileOptimized": false
+  },
+  
+  "branding": {
+    "advertiser": "Xbox",
+    "product": "Game Pass",
+    "brandColors": {
+      "primary": "#10b981",
+      "secondary": "#107c10", 
+      "accent": "#2ca243",
+      "background": "#000000",
+      "text": "#ffffff"
+    },
+    "logo": {
+      "url": "https://i.ibb.co/5X0GGgD5/xbox-white-1.png",
+      "alt": "Xbox Logo"
+    }
+  },
+  
+  "content": {
+    "headline": "Discover Your Next Adventure",
+    "subheadline": "What matters most to you in an RPG?",
+    "callToAction": "Play Free for 30 Days",
+    "legalText": "Xbox Game Pass | New members only | Terms apply",
+    "landingPage": "https://www.xbox.com/en-US/xbox-game-pass"
+  },
+  
+  "features": {
+    "interactive": true,
+    "multiStep": true,
+    "personalized": true,
+    "animated": false,
+    "responsive": false,
+    "customizable": false
+  },
+  
+  "performance": {
+    "expectedInteractionRate": "> 3%",
+    "expectedCompletionRate": "> 60%",
+    "expectedClickThroughRate": "> 1.5%",
+    "loadTime": "< 2s"
+  },
+  
+  "qa": {
+    "tested": true,
+    "browsers": ["Chrome", "Firefox", "Safari", "Edge"],
+    "devices": ["Desktop"],
+    "accessibility": "WCAG 2.1 AA",
+    "issues": []
+  },
+  
+  "deployment": {
+    "insertMethods": ["append", "prepend", "before", "after"],
+    "recommendedMethod": "append",
+    "targetSelectors": [
+      ".sidebar",
+      ".ad-slot", 
+      ".widget-area",
+      "#content-sidebar",
+      ".article-aside"
+    ],
+    "conflictsWith": [],
+    "requirements": {
+      "minWidth": "600px",
+      "minHeight": "400px",
+      "shadowDOMSupport": true
+    }
+  },
+  
+  "analytics": {
+    "events": [
+      "component-loaded",
+      "stage-1-interaction",
+      "stage-2-interaction", 
+      "recommendation-shown",
+      "cta-clicked",
+      "start-over-clicked"
+    ],
+    "customMetrics": [
+      "quiz-completion-rate",
+      "recommendation-accuracy",
+      "user-preference-distribution"
+    ]
+  }
+}

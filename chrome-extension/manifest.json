@@ -1,0 +1,66 @@
+{
+  "manifest_version": 3,
+  "name": "Firsthand Demo Assistant v2.0",
+  "version": "2.0",
+  "description": "Interactive Ad Unit Library with Shadow DOM Chrome Extension for reliable sales demonstrations",
+  
+  "permissions": [
+    "activeTab",
+    "storage",
+    "scripting"
+  ],
+  
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  
+  "background": {
+    "service_worker": "background.js"
+  },
+  
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": [
+        "core/shadow-dom-injector.js",
+        "core/component-manager.js", 
+        "core/message-handler.js",
+        "core/csp-bypass.js",
+        "content.js"
+      ],
+      "run_at": "document_start"
+    }
+  ],
+  
+  "action": {
+    "default_popup": "ui/popup.html",
+    "default_title": "Firsthand Demo Assistant",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "components/*.js",
+        "components/**/*.js",
+        "library/*.js",
+        "library/*.json"
+      ],
+      "matches": ["<all_urls>"]
+    }
+  ],
+  
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'self';"
+  }
+}

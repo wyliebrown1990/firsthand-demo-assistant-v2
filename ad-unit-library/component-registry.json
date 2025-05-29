@@ -1,0 +1,313 @@
+{
+  "version": "2.0",
+  "lastUpdated": "2025-05-28",
+  "description": "Component registry for all available ad units in the Firsthand Demo Assistant library",
+  
+  "metadata": {
+    "totalComponents": 2,
+    "categories": ["auto-tier-1", "gaming"],
+    "latestAddition": "2025-05-29",
+    "librarySize": "~95KB"
+  },
+
+  "components": [
+    {
+      "id": "toyota-suv-interactive-showcase",
+      "status": "active",
+      "version": "1.0",
+      "created": "2025-05-28",
+      "lastModified": "2025-05-28",
+      "contributor": "sales-engineering@firsthand.ai",
+      
+      "file": {
+        "path": "components/auto-tier-1/toyota/sport-sites/toyota-suv-showcase.js",
+        "size": "85KB",
+        "checksum": "sha256:abc123..."
+      },
+      
+      "metadata": {
+        "path": "components/auto-tier-1/toyota/sport-sites/toyota-suv-showcase.json",
+        "validated": true,
+        "lastValidation": "2025-05-28"
+      },
+      
+      "webComponent": {
+        "className": "ToyotaSUVShowcase",
+        "tagName": "toyota-suv-showcase",
+        "shadowDom": true,
+        "customElementsV1": true
+      },
+      
+      "dependencies": {
+        "external": [],
+        "internal": ["base-ad-unit"],
+        "polyfills": []
+      },
+      
+      "compatibility": {
+        "browsers": ["Chrome 88+", "Firefox 88+", "Safari 14+", "Edge 88+"],
+        "mobile": true,
+        "cspCompliant": true,
+        "accessibilityLevel": "WCAG-AA"
+      },
+      
+      "testing": {
+        "lastTested": "2025-05-28",
+        "testCoverage": "90%",
+        "performanceScore": "95/100",
+        "automatedTests": true
+      }
+    },
+    {
+      "id": "xbox-gamepass-quiz",
+      "status": "active",
+      "version": "1.0",
+      "created": "2025-05-29",
+      "lastModified": "2025-05-29",
+      "contributor": "firsthand-demo-assistant",
+      
+      "file": {
+        "path": "components/gaming/xbox/rpg-recommendation/xbox-gamepass-quiz.js",
+        "size": "10KB",
+        "checksum": "sha256:def456..."
+      },
+      
+      "metadata": {
+        "path": "components/gaming/xbox/rpg-recommendation/xbox-gamepass-quiz.json",
+        "validated": true,
+        "lastValidation": "2025-05-29"
+      },
+      
+      "webComponent": {
+        "className": "XboxGamePassQuiz",
+        "tagName": "xbox-gamepass-quiz",
+        "shadowDom": true,
+        "customElementsV1": true
+      },
+      
+      "dependencies": {
+        "external": [
+          "https://i.ibb.co/5X0GGgD5/xbox-white-1.png",
+          "https://i.ibb.co/bRNh9NFk/gaming-1.jpg"
+        ],
+        "internal": [],
+        "polyfills": []
+      },
+      
+      "compatibility": {
+        "browsers": ["Chrome 88+", "Firefox 88+", "Safari 14+", "Edge 88+"],
+        "mobile": false,
+        "cspCompliant": true,
+        "accessibilityLevel": "WCAG-AA"
+      },
+      
+      "testing": {
+        "lastTested": "2025-05-29",
+        "testCoverage": "85%",
+        "performanceScore": "92/100",
+        "automatedTests": false
+      }
+    }
+  ],
+
+  "componentCategories": {
+    "auto-tier-1": {
+      "name": "Auto Tier 1",
+      "description": "Interactive ad units for major automotive manufacturers",
+      "componentCount": 1,
+      "lastUpdated": "2025-05-28",
+      "components": ["toyota-suv-interactive-showcase"]
+    },
+    "cpg-food": {
+      "name": "CPG Food",
+      "description": "Consumer packaged goods food and beverage experiences",
+      "componentCount": 0,
+      "lastUpdated": null,
+      "components": []
+    },
+    "tech-saas": {
+      "name": "Tech SaaS",
+      "description": "Software and technology platform demonstrations",
+      "componentCount": 0,
+      "lastUpdated": null,
+      "components": []
+    },
+    "retail": {
+      "name": "Retail",
+      "description": "Retail and e-commerce interactive experiences",
+      "componentCount": 0,
+      "lastUpdated": null,
+      "components": []
+    },
+    "gaming": {
+      "name": "Gaming",
+      "description": "Gaming and entertainment interactive experiences",
+      "componentCount": 1,
+      "lastUpdated": "2025-05-29",
+      "components": ["xbox-gamepass-quiz"]
+    }
+  },
+
+  "validationRules": {
+    "required": {
+      "webComponent": {
+        "mustExtend": "HTMLElement",
+        "mustImplement": ["connectedCallback", "disconnectedCallback"],
+        "shadowDomRequired": true,
+        "customElementsCompliant": true
+      },
+      "metadata": {
+        "requiredFields": [
+          "id", "name", "description", "version", "created", "contributor",
+          "taxonomy.advertiser", "taxonomy.advertiserVertical", 
+          "taxonomy.adUnitType", "taxonomy.dimensions"
+        ]
+      },
+      "performance": {
+        "maxBundleSize": "100KB",
+        "maxLoadTime": "1000ms",
+        "minPerformanceScore": 80
+      },
+      "accessibility": {
+        "minLevel": "WCAG-AA",
+        "requiredFeatures": ["keyboard-navigation", "screen-reader-support", "aria-labels"]
+      }
+    },
+    "recommended": {
+      "metadata": {
+        "recommendedFields": [
+          "demoContext.bestFor",
+          "demoContext.keyFeatures", 
+          "demoContext.talkingPoints",
+          "technicalSpecs.mobileOptimized",
+          "assets.thumbnailPreview"
+        ]
+      },
+      "performance": {
+        "targetBundleSize": "50KB",
+        "targetLoadTime": "500ms",
+        "targetPerformanceScore": 95
+      }
+    }
+  },
+
+  "buildConfiguration": {
+    "build": {
+      "minification": true,
+      "bundling": true,
+      "treeshaking": true,
+      "compressionLevel": "high"
+    },
+    "validation": {
+      "eslint": true,
+      "typescript": false,
+      "accessibility": true,
+      "performance": true,
+      "browser-compatibility": true
+    },
+    "testing": {
+      "unit": true,
+      "integration": true,
+      "visual-regression": true,
+      "performance": true
+    }
+  },
+
+  "distributionChannels": {
+    "chrome-extension": {
+      "active": true,
+      "path": "../chrome-extension/components/",
+      "autoSync": true
+    },
+    "cdn": {
+      "active": false,
+      "baseUrl": "https://cdn.firsthand.ai/components/",
+      "versioned": true
+    },
+    "npm": {
+      "active": false,
+      "packageName": "@firsthand/demo-components",
+      "registry": "https://registry.npmjs.org/"
+    }
+  },
+
+  "componentLifecycle": {
+    "stages": [
+      {
+        "stage": "development",
+        "description": "Component under active development",
+        "requirements": ["basic-functionality", "initial-testing"]
+      },
+      {
+        "stage": "review", 
+        "description": "Component ready for review",
+        "requirements": ["complete-functionality", "metadata-complete", "testing-complete"]
+      },
+      {
+        "stage": "active",
+        "description": "Component approved and available for use",
+        "requirements": ["review-approved", "validation-passed", "documentation-complete"]
+      },
+      {
+        "stage": "deprecated",
+        "description": "Component marked for removal",
+        "requirements": ["replacement-available", "migration-guide"]
+      },
+      {
+        "stage": "archived",
+        "description": "Component removed from active library",
+        "requirements": ["deprecation-period-complete"]
+      }
+    ]
+  },
+
+  "contributorGuidelines": {
+    "codeStyle": {
+      "eslint": ".eslintrc.js",
+      "prettier": ".prettierrc",
+      "naming": "kebab-case for files, PascalCase for classes"
+    },
+    "documentation": {
+      "required": ["README.md", "component metadata", "usage examples"],
+      "recommended": ["inline-comments", "jsdoc", "demo-video"]
+    },
+    "testing": {
+      "required": ["unit tests", "integration tests", "accessibility tests"],
+      "coverage": "minimum 80%"
+    },
+    "review": {
+      "approvers": ["sales-engineering@firsthand.ai"],
+      "checklistRequired": true,
+      "demoRequired": true
+    }
+  },
+
+  "searchableFields": [
+    "id",
+    "name", 
+    "description",
+    "taxonomy.advertiser",
+    "taxonomy.advertiserVertical",
+    "taxonomy.publisher",
+    "taxonomy.domainVertical", 
+    "taxonomy.adUnitType",
+    "taxonomy.dimensions",
+    "demoContext.bestFor",
+    "demoContext.keyFeatures",
+    "demoContext.talkingPoints",
+    "contributor"
+  ],
+
+  "indexingConfiguration": {
+    "rebuildFrequency": "daily",
+    "lastRebuilt": "2025-05-28",
+    "searchWeights": {
+      "name": 10,
+      "taxonomy.advertiser": 8,
+      "taxonomy.adUnitType": 6,
+      "description": 4,
+      "demoContext.keyFeatures": 3,
+      "demoContext.talkingPoints": 2
+    }
+  }
+}

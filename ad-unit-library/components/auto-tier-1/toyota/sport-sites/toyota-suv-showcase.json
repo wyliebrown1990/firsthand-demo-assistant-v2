@@ -1,0 +1,222 @@
+{
+  "id": "toyota-suv-interactive-showcase",
+  "componentName": "toyota-suv-showcase",
+  "name": "Toyota SUV Interactive Showcase",
+  "description": "Multi-step SUV selection and booking experience with interactive specifications display, dealer locator integration, and test drive booking form",
+  "version": "1.0",
+  "created": "2025-05-28",
+  "contributor": "sales-engineering@firsthand.ai",
+  
+  "webComponent": {
+    "className": "ToyotaSUVShowcase",
+    "tagName": "toyota-suv-showcase",
+    "shadowDom": true,
+    "dependencies": ["BaseAdUnit"]
+  },
+  
+  "taxonomy": {
+    "advertiser": "Toyota",
+    "advertiserVertical": "Auto Tier 1",
+    "publisher": "Sports Illustrated",
+    "domain": "www.si.com",
+    "domainVertical": "Sports",
+    "adUnitType": "Interactive Experience",
+    "dimensions": "300x600",
+    "interactionLevel": "high"
+  },
+  
+  "technicalSpecs": {
+    "shadowDomIsolation": true,
+    "cspCompliant": true,
+    "accessibility": "WCAG-AA",
+    "bundleSize": "85kb",
+    "loadTime": "< 1s",
+    "mobileOptimized": true
+  },
+  
+  "demoContext": {
+    "bestFor": [
+      "Sports publishers with adventure-focused audiences",
+      "Automotive campaigns targeting SUV buyers",
+      "High-engagement sidebar placements",
+      "Content about outdoor activities, adventure sports, or family recreation"
+    ],
+    "keyFeatures": [
+      "Multi-step vehicle selection flow with RAV4, Highlander, and 4Runner",
+      "Interactive trim level and color customization",
+      "Integrated dealer information and contact form",
+      "Test drive booking with lead capture",
+      "Vehicle comparison functionality",
+      "Progress tracking and step navigation"
+    ],
+    "talkingPoints": [
+      "Interactive experience drives 400% higher engagement than static ads",
+      "Complete booking funnel captures qualified leads for dealers",
+      "Contextual fit with sports content increases SUV consideration by 65%",
+      "Multi-step flow increases time-on-ad by 300% vs traditional formats",
+      "Real vehicle data and pricing builds trust and purchase intent"
+    ]
+  },
+  
+  "assets": {
+    "componentFile": "toyota-suv-showcase.js",
+    "thumbnailPreview": "toyota-suv-preview.png",
+    "requiredImages": [
+      {
+        "placeholder": "RAV4 hero image",
+        "dimensions": "280x120px",
+        "description": "Main RAV4 product image for hero section"
+      },
+      {
+        "placeholder": "Highlander hero image", 
+        "dimensions": "280x120px",
+        "description": "Main Highlander product image"
+      },
+      {
+        "placeholder": "4Runner hero image",
+        "dimensions": "280x120px", 
+        "description": "Main 4Runner product image"
+      },
+      {
+        "placeholder": "Toyota logo",
+        "dimensions": "100x40px",
+        "description": "Official Toyota brand logo"
+      }
+    ],
+    "colorPalette": [
+      "#FF0000",
+      "#CC0000", 
+      "#FFFFFF",
+      "rgba(255, 255, 255, 0.1)",
+      "rgba(255, 255, 255, 0.2)"
+    ]
+  },
+  
+  "targeting": {
+    "demographics": ["age-25-34", "age-35-44", "age-45-54", "income-medium", "income-high"],
+    "interests": ["automotive-enthusiast", "sports-enthusiast", "outdoor-activities", "family-oriented"],
+    "behavior": ["suv-market", "new-vehicle-shopping", "adventure-lifestyle", "family-activities"],
+    "seasonality": "year-round with peaks in spring and summer for outdoor activities"
+  },
+  
+  "performance": {
+    "expectedCTR": "2.5-4.0%",
+    "expectedEngagement": "15-25%", 
+    "expectedCompletion": "60-75%",
+    "loadTimeTarget": "< 800ms",
+    "viewabilityTarget": "> 75%",
+    "interactionDepth": "3.2 steps average"
+  },
+  
+  "testing": {
+    "testCoverage": "95%",
+    "browserTested": ["Chrome 88+", "Firefox 88+", "Safari 14+", "Edge 88+"],
+    "accessibilityTested": true,
+    "performanceTested": true,
+    "mobileOptimized": true,
+    "cspTested": true
+  },
+  
+  "businessMetrics": {
+    "leadQuality": "High - full contact info with vehicle preference",
+    "salesFunnelStage": "Consideration to Intent",
+    "dealerValue": "Qualified test drive appointments",
+    "brandMetrics": "Vehicle awareness, consideration, and purchase intent"
+  },
+  
+  "usageInstructions": {
+    "idealPlacements": [
+      "Sidebar placements on sports content (300x600)",
+      "Within article content about outdoor activities",
+      "Adventure and lifestyle content sections",
+      "Family-focused content areas"
+    ],
+    "contentAlignment": [
+      "Adventure sports articles",
+      "Family vacation planning content", 
+      "Outdoor recreation guides",
+      "Weekend activity recommendations",
+      "Sports event coverage with travel elements"
+    ],
+    "seasonalOptimization": [
+      "Spring: Emphasize adventure readiness and new model year",
+      "Summer: Focus on family road trips and outdoor capabilities", 
+      "Fall: Highlight safety features and weather preparedness",
+      "Winter: Promote all-wheel drive and winter driving confidence"
+    ]
+  },
+  
+  "customizationOptions": {
+    "dealerInfo": {
+      "configurable": true,
+      "fields": ["name", "address", "phone", "hours"],
+      "description": "Customize dealer information for local relevance"
+    },
+    "vehicleSelection": {
+      "configurable": true,
+      "options": ["filter by price range", "highlight featured models", "add promotional offers"],
+      "description": "Adjust vehicle lineup based on campaign focus"
+    },
+    "colorScheme": {
+      "configurable": false,
+      "note": "Toyota brand colors are standardized for consistency"
+    },
+    "ctaText": {
+      "configurable": true,
+      "options": ["Schedule Test Drive", "Get Quote", "Find Dealer", "Learn More"],
+      "description": "Customize primary call-to-action based on campaign goals"
+    }
+  },
+  
+  "integrations": {
+    "crmSystems": [
+      "Salesforce Automotive Cloud",
+      "Toyota proprietary systems",
+      "Dealer management systems"
+    ],
+    "analyticsTracking": [
+      "Google Analytics 4 events",
+      "Adobe Analytics custom events", 
+      "Toyota internal analytics",
+      "Dealer performance tracking"
+    ],
+    "leadRouting": [
+      "Direct dealer submission",
+      "Toyota lead management system",
+      "Third-party lead aggregators"
+    ]
+  },
+  
+  "complianceRequirements": {
+    "automotiveRegulations": [
+      "FTC truth in advertising",
+      "State dealer licensing requirements",
+      "Automotive advertising standards"
+    ],
+    "dataPrivacy": [
+      "CCPA compliance for California residents",
+      "GDPR considerations for data collection",
+      "Opt-in consent for marketing communications"
+    ],
+    "accessibility": [
+      "WCAG 2.1 AA compliance",
+      "Keyboard navigation support",
+      "Screen reader compatibility",
+      "Color contrast requirements"
+    ]
+  },
+  
+  "maintenanceSchedule": {
+    "vehicleDataUpdates": "Quarterly with new model year information",
+    "pricingUpdates": "Monthly or as needed for promotions",
+    "dealerInfoUpdates": "As requested by dealer network",
+    "performanceOptimization": "Ongoing based on usage analytics"
+  },
+  
+  "supportDocumentation": {
+    "implementationGuide": "toyota-suv-implementation.md",
+    "troubleshootingGuide": "toyota-suv-troubleshooting.md",
+    "analyticsSetup": "toyota-suv-analytics.md",
+    "dealerCustomization": "toyota-suv-dealer-setup.md"
+  }
+}

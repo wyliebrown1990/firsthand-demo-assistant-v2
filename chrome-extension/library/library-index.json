@@ -1,0 +1,374 @@
+{
+  "version": "2.0",
+  "lastUpdated": "2025-05-29T10:00:00Z",
+  "totalComponents": 5,
+  
+  "components": [
+    {
+      "id": "toyota-suv-interactive-showcase",
+      "name": "Toyota SUV Interactive Showcase",
+      "description": "Multi-step SUV selection and booking experience with interactive specifications display, dealer locator integration, and test drive booking form",
+      "version": "1.0",
+      "created": "2025-05-28",
+      "contributor": "sales-engineering@firsthand.ai",
+      "path": "components/auto-tier-1/toyota-suv-showcase.js",
+      "className": "ToyotaSUVShowcase",
+      
+      "webComponent": {
+        "className": "ToyotaSUVShowcase",
+        "tagName": "toyota-suv-showcase",
+        "shadowDom": true,
+        "dependencies": []
+      },
+      
+      "taxonomy": {
+        "advertiser": "Toyota",
+        "advertiserVertical": "Auto Tier 1",
+        "publisher": "Sports Illustrated",
+        "domain": "www.si.com",
+        "domainVertical": "Sports",
+        "adUnitType": "Interactive Experience",
+        "dimensions": "300x600",
+        "interactionLevel": "high"
+      },
+      
+      "technicalSpecs": {
+        "shadowDomIsolation": true,
+        "cspCompliant": true,
+        "accessibility": "WCAG-AA",
+        "bundleSize": "85kb",
+        "loadTime": "< 1s",
+        "mobileOptimized": true
+      },
+      
+      "demoContext": {
+        "bestFor": [
+          "Sports publishers with adventure-focused audiences",
+          "Automotive campaigns targeting SUV buyers",
+          "High-engagement sidebar placements"
+        ],
+        "keyFeatures": [
+          "Multi-step vehicle selection flow",
+          "Interactive specifications display", 
+          "Dealer locator integration",
+          "Test drive booking form"
+        ],
+        "talkingPoints": [
+          "Interactive experience drives 400% higher engagement",
+          "Complete booking funnel captures qualified leads",
+          "Contextual fit with sports content increases conversion"
+        ]
+      },
+      
+      "assets": {
+        "componentFile": "toyota-suv-showcase.js",
+        "thumbnailPreview": "toyota-suv-preview.png",
+        "requiredImages": [
+          {
+            "placeholder": "RAV4 thumbnail",
+            "dimensions": "60x45px"
+          },
+          {
+            "placeholder": "RAV4 hero image",
+            "dimensions": "200x120px"
+          }
+        ]
+      },
+      
+      "searchTerms": [
+        "toyota", "suv", "automotive", "interactive", "booking", "dealer", 
+        "test drive", "vehicle", "selection", "sports", "adventure"
+      ]
+    },
+    {
+      "id": "test-leaderboard-banner",
+      "name": "Test Leaderboard Banner",
+      "description": "Test component for 728x90 leaderboard format",
+      "version": "1.0",
+      "created": "2025-05-28",
+      "contributor": "test@firsthand.ai",
+      "path": "components/test/test-leaderboard.js",
+      "className": "TestLeaderboard",
+      
+      "webComponent": {
+        "className": "TestLeaderboard",
+        "tagName": "test-leaderboard",
+        "shadowDom": true,
+        "dependencies": []
+      },
+      
+      "taxonomy": {
+        "advertiser": "Test Brand",
+        "advertiserVertical": "Tech SaaS",
+        "publisher": "Test Publisher",
+        "domain": "www.test.com",
+        "domainVertical": "Business",
+        "adUnitType": "Product Showcase",
+        "dimensions": "728x90",
+        "interactionLevel": "simple"
+      },
+      
+      "searchTerms": ["test", "leaderboard", "banner", "horizontal"]
+    },
+    {
+      "id": "test-medium-rectangle",
+      "name": "Test Medium Rectangle",
+      "description": "Test component for 300x250 medium rectangle format",
+      "version": "1.0",
+      "created": "2025-05-28", 
+      "contributor": "test@firsthand.ai",
+      "path": "components/test/test-rectangle.js",
+      "className": "TestRectangle",
+      
+      "webComponent": {
+        "className": "TestRectangle", 
+        "tagName": "test-rectangle",
+        "shadowDom": true,
+        "dependencies": []
+      },
+      
+      "taxonomy": {
+        "advertiser": "Test Brand",
+        "advertiserVertical": "CPG Food",
+        "publisher": "Test Publisher", 
+        "domain": "www.test.com",
+        "domainVertical": "Lifestyle",
+        "adUnitType": "Product Showcase",
+        "dimensions": "300x250",
+        "interactionLevel": "simple"
+      },
+      
+      "searchTerms": ["test", "rectangle", "medium", "square"]
+    },
+    {
+      "id": "test-mobile-banner",
+      "name": "Test Mobile Banner", 
+      "description": "Test component for 320x50 mobile banner format",
+      "version": "1.0",
+      "created": "2025-05-28",
+      "contributor": "test@firsthand.ai",
+      "path": "components/test/test-mobile.js", 
+      "className": "TestMobile",
+      
+      "webComponent": {
+        "className": "TestMobile",
+        "tagName": "test-mobile",
+        "shadowDom": true,
+        "dependencies": []
+      },
+      
+      "taxonomy": {
+        "advertiser": "Test Brand",
+        "advertiserVertical": "Retail", 
+        "publisher": "Test Publisher",
+        "domain": "www.test.com",
+        "domainVertical": "Sports",
+        "adUnitType": "Product Showcase", 
+        "dimensions": "320x50",
+        "interactionLevel": "simple"
+      },
+      
+      "searchTerms": ["test", "mobile", "banner", "small"]
+    },
+    {
+      "id": "xbox-gamepass-quiz",
+      "name": "Xbox Game Pass Interactive Quiz",
+      "description": "An ad unit for gaming websites with content covering RPGs. The goal is to help end users discover their next favorite RPG.",
+      "version": "1.0",
+      "created": "2025-05-29",
+      "contributor": "firsthand-demo-assistant",
+      "path": "components/gaming/xbox-gamepass-quiz.js",
+      "className": "XboxGamePassQuiz",
+      
+      "webComponent": {
+        "className": "XboxGamePassQuiz",
+        "tagName": "xbox-gamepass-quiz",
+        "shadowDom": true,
+        "dependencies": []
+      },
+      
+      "taxonomy": {
+        "advertiser": "Xbox",
+        "advertiserVertical": "Gaming",
+        "publisher": "PC Gamer",
+        "domain": "www.pcgamer.com",
+        "domainVertical": "Technology",
+        "adUnitType": "Recommendation Engine",
+        "dimensions": "600x400",
+        "interactionLevel": "high"
+      },
+      
+      "technicalSpecs": {
+        "shadowDomIsolation": true,
+        "cspCompliant": true,
+        "accessibility": "WCAG-AA",
+        "bundleSize": "10kb",
+        "loadTime": "< 1s",
+        "mobileOptimized": false
+      },
+      
+      "demoContext": {
+        "bestFor": [
+          "Gaming websites targeting RPG enthusiasts",
+          "Xbox Game Pass subscription campaigns",
+          "Interactive discovery experiences"
+        ],
+        "keyFeatures": [
+          "Multi-step preference quiz",
+          "Personalized game recommendations", 
+          "Interactive RPG discovery",
+          "Game Pass integration"
+        ],
+        "talkingPoints": [
+          "Interactive quiz drives 300% higher engagement",
+          "Personalized recommendations increase conversion",
+          "Contextual fit with gaming content maximizes relevance"
+        ]
+      },
+      
+      "assets": {
+        "componentFile": "xbox-gamepass-quiz.js",
+        "thumbnailPreview": "xbox-quiz-preview.png",
+        "requiredImages": [
+          {
+            "placeholder": "Xbox logo",
+            "dimensions": "24x24px"
+          },
+          {
+            "placeholder": "Game thumbnail",
+            "dimensions": "200x140px"
+          }
+        ]
+      },
+      
+      "searchTerms": [
+        "xbox", "game pass", "gaming", "rpg", "quiz", "recommendation", 
+        "interactive", "personalized", "discovery", "subscription"
+      ]
+    }
+  ],
+  
+  "categories": {
+    "advertiserVerticals": [
+      "Auto Tier 1",
+      "CPG Food", 
+      "Tech SaaS",
+      "Retail",
+      "Gaming"
+    ],
+    "adUnitTypes": [
+      "Interactive Experience",
+      "Product Showcase",
+      "Form Capture",
+      "Calculator Tool",
+      "Recommendation Engine"
+    ],
+    "dimensions": [
+      "300x250",
+      "300x600", 
+      "320x50",
+      "728x90",
+      "336x280",
+      "160x600",
+      "970x250",
+      "600x400"
+    ],
+    "interactionLevels": [
+      "simple",
+      "medium", 
+      "high"
+    ]
+  },
+  
+  "quickFilters": {
+    "auto-sports": {
+      "name": "Auto + Sports",
+      "description": "Automotive campaigns for sports publishers",
+      "criteria": {
+        "advertiserVertical": "Auto Tier 1",
+        "domainVertical": "Sports"
+      }
+    },
+    "cpg-lifestyle": {
+      "name": "CPG + Lifestyle", 
+      "description": "Consumer goods for lifestyle publishers",
+      "criteria": {
+        "advertiserVertical": "CPG Food",
+        "domainVertical": "Lifestyle"
+      }
+    },
+    "tech-business": {
+      "name": "Tech + Business",
+      "description": "Technology solutions for business audiences", 
+      "criteria": {
+        "advertiserVertical": "Tech SaaS",
+        "domainVertical": "Business"
+      }
+    },
+    "retail-ecommerce": {
+      "name": "Retail + E-commerce",
+      "description": "Retail campaigns for shopping contexts",
+      "criteria": {
+        "advertiserVertical": "Retail"
+      }
+    }
+  },
+  
+  "searchConfiguration": {
+    "fieldWeights": {
+      "name": 10,
+      "taxonomy.advertiser": 8,
+      "taxonomy.adUnitType": 6, 
+      "description": 4,
+      "demoContext.keyFeatures": 3,
+      "searchTerms": 2
+    },
+    "fuzzySearch": {
+      "enabled": true,
+      "threshold": 0.6
+    },
+    "stemming": {
+      "enabled": true,
+      "language": "english"
+    }
+  },
+  
+  "popularComponents": [
+    "toyota-suv-interactive-showcase",
+    "xbox-gamepass-quiz"
+  ],
+  
+  "recentlyAdded": [
+    {
+      "id": "xbox-gamepass-quiz",
+      "addedDate": "2025-05-29"
+    },
+    {
+      "id": "toyota-suv-interactive-showcase",
+      "addedDate": "2025-05-28"
+    }
+  ],
+  
+  "featuredComponents": [
+    {
+      "id": "toyota-suv-interactive-showcase", 
+      "reason": "High engagement interactive experience",
+      "featuredUntil": "2025-06-28"
+    }
+  ],
+  
+  "usageStatistics": {
+    "totalInjections": 0,
+    "mostPopular": null,
+    "averageEngagement": null,
+    "lastUpdated": "2025-05-28"
+  },
+  
+  "metadata": {
+    "librarySize": "95KB",
+    "averageComponentSize": "19KB",
+    "supportedBrowsers": ["Chrome 88+", "Firefox 88+", "Safari 14+"],
+    "cspComplianceRate": "100%",
+    "accessibilityCompliance": "100%"
+  }
+}

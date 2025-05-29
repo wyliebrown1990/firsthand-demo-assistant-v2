@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Firsthand Demo Assistant v2.0</title>
+    <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+    <div class="demo-assistant" style="min-width: 450px; min-height: 750px;">
+        <header class="app-header">
+            <div class="header-content">
+                <h1>Firsthand Demo Assistant</h1>
+                <span class="version">v2.0</span>
+            </div>
+            <div class="status-indicator">
+                <span id="connectionStatus" class="status-dot"></span>
+                <span id="statusText">Initializing...</span>
+            </div>
+        </header>
+
+        <div class="mode-toggle">
+            <button id="libraryMode" class="mode-btn active">
+                <span class="icon">=�</span>
+                Component Library
+            </button>
+            <button id="manualMode" class="mode-btn">
+                <span class="icon">�</span>
+                Manual Input
+            </button>
+        </div>
+
+        <!-- Component Library Section -->
+        <div id="librarySection" class="library-browser">
+            <div class="search-container">
+                <div class="search-input-wrapper">
+                    <input type="text" id="componentSearch" placeholder="Search components..." autocomplete="off">
+                    <button id="searchBtn" class="search-btn">
+                        <span class="icon">=</span>
+                    </button>
+                </div>
+                
+                <div class="filters">
+                    <select id="advertiserVerticalFilter" class="filter-select">
+                        <option value="">All Verticals</option>
+                    </select>
+                    <select id="adUnitTypeFilter" class="filter-select">
+                        <option value="">All Types</option>
+                    </select>
+                    <select id="dimensionsFilter" class="filter-select">
+                        <option value="">All Sizes</option>
+                    </select>
+                </div>
+                
+                <div class="quick-filters">
+                    <button class="quick-filter" data-filter="auto-sports">=� Auto + Sports</button>
+                    <button class="quick-filter" data-filter="cpg-lifestyle">=� CPG + Lifestyle</button>
+                    <button class="quick-filter" data-filter="tech-business">=� Tech + Business</button>
+                    <button class="quick-filter" data-filter="retail-ecommerce"><� Retail + E-commerce</button>
+                </div>
+            </div>
+            
+            <div class="search-results-info">
+                <span id="resultsCount">0 components found</span>
+                <button id="clearFilters" class="clear-btn">Clear Filters</button>
+            </div>
+            
+            <div id="componentGrid" class="component-grid">
+                <div class="loading-state">
+                    <div class="spinner"></div>
+                    <p>Loading component library...</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Manual Input Section -->
+        <div id="manualSection" class="manual-input" style="display: none;">
+            <div class="form-group">
+                <label for="componentIdInput">Component ID:</label>
+                <input type="text" id="componentIdInput" placeholder="e.g., toyota-suv-interactive-showcase">
+                <button id="validateComponent" class="validate-btn">Validate</button>
+            </div>
+            
+            <div id="componentPreview" class="component-preview" style="display: none;">
+                <div class="preview-card">
+                    <h4 id="previewName"></h4>
+                    <p id="previewDescription"></p>
+                    <div class="preview-meta">
+                        <span id="previewVertical" class="meta-tag"></span>
+                        <span id="previewType" class="meta-tag"></span>
+                        <span id="previewDimensions" class="meta-tag"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Injection Controls -->
+        <div class="injection-section">
+            <div class="selected-component" id="selectedComponent" style="display: none;">
+                <div class="selected-info">
+                    <h4 id="selectedName"></h4>
+                    <p id="selectedDescription"></p>
+                    <div class="selected-meta">
+                        <span id="selectedVertical" class="meta-tag"></span>
+                        <span id="selectedType" class="meta-tag"></span>
+                        <span id="selectedDimensions" class="meta-tag"></span>
+                    </div>
+                </div>
+                <button id="clearSelection" class="clear-selection-btn"></button>
+            </div>
+
+            <div class="form-group">
+                <label for="targetSelector">Target Element (CSS Selector):</label>
+                <div class="input-with-btn">
+                    <input type="text" id="targetSelector" placeholder="e.g., #sidebar, .ad-slot">
+                    <button id="detectTargets" class="detect-btn" title="Auto-detect potential targets"><�</button>
+                    <button id="validateTarget" class="validate-btn" title="Validate selector"></button>
+                </div>
+                <div id="targetValidation" class="validation-message"></div>
+            </div>
+            
+            <div class="target-suggestions" id="targetSuggestions" style="display: none;">
+                <label>Suggested targets:</label>
+                <div class="suggestions-list"></div>
+            </div>
+            
+            <div class="form-group">
+                <label for="insertMethod">Insert Method:</label>
+                <select id="insertMethod" class="method-select">
+                    <option value="append">Append to Target</option>
+                    <option value="prepend">Prepend to Target</option>
+                    <option value="before">Insert Before Target</option>
+                    <option value="after">Insert After Target</option>
+                    <option value="replace">Replace Target</option>
+                </select>
+            </div>
+            
+            <div class="advanced-options" id="advancedOptions" style="display: none;">
+                <h4>Advanced Configuration</h4>
+                <div class="form-group">
+                    <label for="componentData">Component Data (JSON):</label>
+                    <textarea id="componentData" placeholder='{"customField": "value"}'></textarea>
+                </div>
+            </div>
+            
+            <div class="button-group">
+                <button id="injectComponent" class="btn-primary" disabled>
+                    <span class="icon">=�</span>
+                    Inject Component
+                </button>
+                <button id="toggleAdvanced" class="btn-secondary">
+                    <span class="icon">�</span>
+                    Advanced
+                </button>
+            </div>
+        </div>
+
+        <!-- Injected Components Management -->
+        <div class="injected-section">
+            <div class="section-header">
+                <h3>Injected Components</h3>
+                <button id="refreshInjected" class="refresh-btn" title="Refresh list">�</button>
+            </div>
+            
+            <div id="injectedList" class="injected-list">
+                <div class="empty-state">
+                    <p>No components injected yet</p>
+                </div>
+            </div>
+            
+            <div class="injected-actions">
+                <button id="clearAllComponents" class="btn-danger">
+                    <span class="icon">=�</span>
+                    Clear All
+                </button>
+                <button id="exportComponents" class="btn-secondary">
+                    <span class="icon">=�</span>
+                    Export List
+                </button>
+            </div>
+        </div>
+
+        <!-- Status Message -->
+        <div id="statusMessage" class="status-message"></div>
+
+        <!-- Footer -->
+        <footer class="app-footer">
+            <div class="footer-actions">
+                <button id="debugMode" class="debug-btn" title="Toggle debug mode">=</button>
+                <button id="helpBtn" class="help-btn" title="Help & Documentation">S</button>
+                <button id="settingsBtn" class="settings-btn" title="Settings">�</button>
+            </div>
+            <div class="footer-info">
+                <span class="build-info">Build: 2025.05.28</span>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Component Details Modal -->
+    <div id="componentModal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modalTitle"></h3>
+                <button id="closeModal" class="close-btn"></button>
+            </div>
+            <div class="modal-body">
+                <div id="modalContent"></div>
+            </div>
+            <div class="modal-footer">
+                <button id="selectFromModal" class="btn-primary">Select Component</button>
+                <button id="cancelModal" class="btn-secondary">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Help Modal -->
+    <div id="helpModal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Firsthand Demo Assistant Help</h3>
+                <button id="closeHelpModal" class="close-btn"></button>
+            </div>
+            <div class="modal-body">
+                <div class="help-content">
+                    <h4>Quick Start</h4>
+                    <ol>
+                        <li>Search for components in the library</li>
+                        <li>Select a component that matches your demo context</li>
+                        <li>Specify a target element selector (or use auto-detect)</li>
+                        <li>Click "Inject Component" to add it to the page</li>
+                    </ol>
+                    
+                    <h4>Keyboard Shortcuts</h4>
+                    <ul>
+                        <li><kbd>Ctrl+Shift+F</kbd> - Toggle debug mode</li>
+                        <li><kbd>Ctrl+Shift+C</kbd> - Clear all components</li>
+                    </ul>
+                    
+                    <h4>Tips</h4>
+                    <ul>
+                        <li>Use auto-detect to find suitable target elements</li>
+                        <li>Test selectors with the validation button</li>
+                        <li>Components are isolated using Shadow DOM for reliability</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Basic error handling for popup
+        window.addEventListener('error', function(e) {
+            console.error('Popup error:', e.error);
+            document.body.innerHTML = '<div style="padding: 20px; min-width: 400px; min-height: 300px;"><h3>Error Loading Popup</h3><p>' + e.error.message + '</p></div>';
+        });
+        
+        // Ensure popup has content even if main script fails
+        setTimeout(function() {
+            if (!document.querySelector('.demo-assistant').innerHTML.trim()) {
+                document.querySelector('.demo-assistant').innerHTML = '<div style="padding: 20px;"><h3>Loading...</h3><p>Initializing Firsthand Demo Assistant...</p></div>';
+            }
+        }, 100);
+    </script>
+    <script src="popup.js"></script>
+</body>
+</html>

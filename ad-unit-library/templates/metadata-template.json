@@ -1,0 +1,219 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Firsthand Demo Assistant Component Metadata Template",
+  "description": "Standard metadata schema for all ad unit components",
+  "version": "2.0",
+  
+  "template": {
+    "id": "REQUIRED: unique-component-identifier",
+    "componentName": "REQUIRED: component-file-name",
+    "name": "REQUIRED: Human Readable Component Name",
+    "description": "REQUIRED: Brief description of what this component does and its key functionality",
+    "version": "REQUIRED: 1.0",
+    "created": "REQUIRED: YYYY-MM-DD",
+    "contributor": "REQUIRED: email@domain.com or team-name",
+    
+    "webComponent": {
+      "className": "REQUIRED: JavaScriptClassName",
+      "tagName": "REQUIRED: kebab-case-tag-name",
+      "shadowDom": "REQUIRED: true/false",
+      "dependencies": "OPTIONAL: ['dependency1', 'dependency2']"
+    },
+    
+    "taxonomy": {
+      "advertiser": "REQUIRED: Brand/Company name",
+      "advertiserVertical": "REQUIRED: Auto Tier 1|CPG Food|Tech SaaS|Retail|Finance|Telecom",
+      "publisher": "OPTIONAL: Specific publisher name",
+      "domain": "OPTIONAL: www.example.com",
+      "domainVertical": "OPTIONAL: Sports|News|Lifestyle|Business|Entertainment|Technology",
+      "adUnitType": "REQUIRED: Interactive Experience|Product Showcase|Video Showcase|Form Capture|Calculator Tool|Quiz Assessment",
+      "dimensions": "REQUIRED: WIDTHxHEIGHT (e.g., 300x600)",
+      "interactionLevel": "REQUIRED: simple|medium|high"
+    },
+    
+    "technicalSpecs": {
+      "shadowDomIsolation": "REQUIRED: true/false",
+      "cspCompliant": "REQUIRED: true/false", 
+      "accessibility": "REQUIRED: WCAG-AA|WCAG-AAA",
+      "bundleSize": "REQUIRED: size in KB (e.g., 85kb)",
+      "loadTime": "REQUIRED: load time estimate (e.g., < 1s)",
+      "mobileOptimized": "RECOMMENDED: true/false"
+    },
+    
+    "demoContext": {
+      "bestFor": [
+        "RECOMMENDED: Context where this component works best",
+        "RECOMMENDED: Target audience or publisher type",
+        "RECOMMENDED: Optimal placement recommendations"
+      ],
+      "keyFeatures": [
+        "RECOMMENDED: Primary interactive feature",
+        "RECOMMENDED: Secondary feature",
+        "RECOMMENDED: Unique selling point"
+      ],
+      "talkingPoints": [
+        "RECOMMENDED: Engagement benefit with metrics",
+        "RECOMMENDED: Business value proposition", 
+        "RECOMMENDED: Technical advantage"
+      ]
+    },
+    
+    "assets": {
+      "componentFile": "REQUIRED: component-name.js",
+      "thumbnailPreview": "RECOMMENDED: component-preview.png",
+      "requiredImages": [
+        {
+          "placeholder": "OPTIONAL: Image description",
+          "dimensions": "OPTIONAL: WIDTHxHEIGHT"
+        }
+      ]
+    },
+    
+    "targeting": {
+      "demographics": "OPTIONAL: ['age-25-34', 'income-medium']",
+      "interests": "OPTIONAL: ['sports-enthusiast', 'automotive']", 
+      "behavior": "OPTIONAL: ['online-shopper', 'mobile-heavy-user']",
+      "seasonality": "OPTIONAL: holiday-season|back-to-school|summer|spring"
+    },
+    
+    "performance": {
+      "expectedCTR": "OPTIONAL: Expected click-through rate",
+      "expectedEngagement": "OPTIONAL: Expected interaction rate",
+      "loadTimeTarget": "OPTIONAL: Performance target",
+      "viewabilityTarget": "OPTIONAL: Viewability benchmark"
+    },
+    
+    "testing": {
+      "testCoverage": "OPTIONAL: Test coverage percentage",
+      "browserTested": "OPTIONAL: ['Chrome', 'Firefox', 'Safari']",
+      "accessibilityTested": "OPTIONAL: true/false",
+      "performanceTested": "OPTIONAL: true/false"
+    }
+  },
+  
+  "requiredFields": [
+    "id",
+    "componentName", 
+    "name",
+    "description",
+    "version",
+    "created",
+    "contributor",
+    "webComponent.className",
+    "webComponent.tagName",
+    "webComponent.shadowDom",
+    "taxonomy.advertiser",
+    "taxonomy.advertiserVertical",
+    "taxonomy.adUnitType", 
+    "taxonomy.dimensions",
+    "taxonomy.interactionLevel",
+    "technicalSpecs.shadowDomIsolation",
+    "technicalSpecs.cspCompliant",
+    "technicalSpecs.accessibility",
+    "technicalSpecs.bundleSize",
+    "technicalSpecs.loadTime",
+    "assets.componentFile"
+  ],
+  
+  "recommendedFields": [
+    "demoContext.bestFor",
+    "demoContext.keyFeatures",
+    "demoContext.talkingPoints", 
+    "assets.thumbnailPreview",
+    "technicalSpecs.mobileOptimized",
+    "taxonomy.publisher",
+    "taxonomy.domainVertical"
+  ],
+  
+  "validation": {
+    "id": {
+      "pattern": "^[a-z0-9-]+$",
+      "description": "Lowercase letters, numbers, and hyphens only"
+    },
+    "componentName": {
+      "pattern": "^[a-z0-9-]+$", 
+      "description": "Kebab-case filename without extension"
+    },
+    "webComponent.className": {
+      "pattern": "^[A-Z][a-zA-Z0-9]*$",
+      "description": "PascalCase class name"
+    },
+    "webComponent.tagName": {
+      "pattern": "^[a-z0-9-]+$",
+      "description": "Kebab-case tag name"
+    },
+    "taxonomy.dimensions": {
+      "pattern": "^\\d+x\\d+$",
+      "description": "Width x Height format (e.g., 300x600)"
+    },
+    "taxonomy.advertiserVertical": {
+      "enum": ["Auto Tier 1", "CPG Food", "Tech SaaS", "Retail", "Finance", "Telecom"]
+    },
+    "taxonomy.adUnitType": {
+      "enum": ["Interactive Experience", "Product Showcase", "Video Showcase", "Form Capture", "Calculator Tool", "Quiz Assessment"]
+    },
+    "taxonomy.interactionLevel": {
+      "enum": ["simple", "medium", "high"]
+    },
+    "technicalSpecs.accessibility": {
+      "enum": ["WCAG-AA", "WCAG-AAA"]
+    }
+  },
+  
+  "examples": {
+    "automotive": {
+      "id": "honda-civic-configurator",
+      "taxonomy": {
+        "advertiser": "Honda",
+        "advertiserVertical": "Auto Tier 1",
+        "adUnitType": "Interactive Experience",
+        "dimensions": "300x600"
+      }
+    },
+    "cpg": {
+      "id": "coca-cola-recipe-finder",
+      "taxonomy": {
+        "advertiser": "Coca-Cola", 
+        "advertiserVertical": "CPG Food",
+        "adUnitType": "Calculator Tool",
+        "dimensions": "300x250"
+      }
+    },
+    "tech": {
+      "id": "microsoft-teams-demo",
+      "taxonomy": {
+        "advertiser": "Microsoft",
+        "advertiserVertical": "Tech SaaS", 
+        "adUnitType": "Product Showcase",
+        "dimensions": "728x90"
+      }
+    }
+  },
+  
+  "bestPractices": {
+    "naming": [
+      "Use descriptive, specific names that indicate the advertiser and functionality",
+      "Follow kebab-case for IDs and file names",
+      "Use PascalCase for JavaScript class names",
+      "Keep names under 50 characters when possible"
+    ],
+    "description": [
+      "Focus on user experience and key interactions",
+      "Mention specific features that differentiate the component",
+      "Keep descriptions between 50-200 characters",
+      "Avoid technical jargon in favor of business benefits"
+    ],
+    "taxonomy": [
+      "Be specific with advertiser names (use official brand names)",
+      "Choose the most relevant vertical even if advertiser spans multiple",
+      "Select ad unit type based on primary interaction pattern",
+      "Use exact pixel dimensions for consistent sizing"
+    ],
+    "demoContext": [
+      "Focus on sales value and use cases in bestFor",
+      "Highlight interactive elements in keyFeatures", 
+      "Include metrics and business benefits in talkingPoints",
+      "Think from the perspective of a sales engineer presenting"
+    ]
+  }
+}

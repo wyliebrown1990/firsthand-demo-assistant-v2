@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multi-Format Ad Unit Test Page</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background: #f8f9fa;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .test-section {
+            margin: 30px 0;
+            padding: 20px;
+            border: 2px dashed #007bff;
+            border-radius: 8px;
+            background: #f8f9ff;
+        }
+        
+        .test-section h3 {
+            margin: 0 0 15px 0;
+            color: #007bff;
+            font-size: 18px;
+        }
+        
+        .test-info {
+            background: white;
+            padding: 10px;
+            border-radius: 4px;
+            margin-bottom: 15px;
+            font-size: 14px;
+            color: #666;
+        }
+        
+        .test-buttons {
+            margin: 15px 0;
+        }
+        
+        .test-buttons button {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            margin: 5px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        
+        .test-buttons button:hover {
+            background: #0056b3;
+        }
+        
+        .ad-slot {
+            border: 1px solid #ddd;
+            margin: 10px 0;
+            position: relative;
+            background: #fafafa;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #999;
+            font-size: 14px;
+        }
+        
+        .leaderboard-slot {
+            width: 728px;
+            height: 90px;
+            margin: 20px auto;
+        }
+        
+        .rectangle-slot {
+            width: 300px;
+            height: 250px;
+            float: right;
+            margin: 0 0 20px 20px;
+        }
+        
+        .sidebar-slot {
+            width: 300px;
+            height: 600px;
+            float: right;
+            margin: 0 0 20px 20px;
+        }
+        
+        .mobile-slot {
+            width: 320px;
+            height: 50px;
+            margin: 20px auto;
+        }
+        
+        .content {
+            overflow: hidden;
+        }
+        
+        .article-content {
+            margin: 20px 0;
+            line-height: 1.8;
+        }
+        
+        .clear {
+            clear: both;
+        }
+        
+        @media (max-width: 768px) {
+            .rectangle-slot,
+            .sidebar-slot {
+                float: none;
+                margin: 20px auto;
+            }
+            
+            .leaderboard-slot {
+                width: 320px;
+                height: 50px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🎯 Multi-Format Ad Unit Test Page</h1>
+            <p>Test different ad unit dimensions and formats using the Chrome extension</p>
+        </div>
+
+        <!-- Leaderboard Test Section -->
+        <div class="test-section">
+            <h3>📏 Leaderboard Banner (728×90)</h3>
+            <div class="test-info">
+                <strong>Usage:</strong> Top of page, header areas, between content sections<br>
+                <strong>Best for:</strong> Brand awareness, horizontal messaging, desktop sites
+            </div>
+            <div class="test-buttons">
+                <button onclick="injectComponent('test-leaderboard-banner', '.leaderboard-slot')">
+                    Inject Test Leaderboard
+                </button>
+                <button onclick="injectComponent('toyota-suv-interactive-showcase', '.leaderboard-slot')">
+                    Inject Toyota (Will Adapt)
+                </button>
+                <button onclick="clearSlot('.leaderboard-slot')">Clear</button>
+            </div>
+            <div class="ad-slot leaderboard-slot" id="leaderboard-ad">
+                Leaderboard Ad Slot (728×90)
+            </div>
+        </div>
+
+        <!-- Sidebar Test Section -->
+        <div class="test-section">
+            <h3>📱 Wide Skyscraper (300×600)</h3>
+            <div class="test-info">
+                <strong>Usage:</strong> Sidebar placements, right rail, content areas<br>
+                <strong>Best for:</strong> Interactive experiences, detailed product showcases, lead generation
+            </div>
+            <div class="test-buttons">
+                <button onclick="injectComponent('toyota-suv-interactive-showcase', '.sidebar-slot')">
+                    Inject Toyota SUV Showcase
+                </button>
+                <button onclick="injectComponent('test-leaderboard-banner', '.sidebar-slot')">
+                    Inject Test Banner (Will Adapt)
+                </button>
+                <button onclick="clearSlot('.sidebar-slot')">Clear</button>
+            </div>
+            <div class="content">
+                <div class="ad-slot sidebar-slot" id="sidebar-ad">
+                    Sidebar Ad Slot (300×600)
+                </div>
+                
+                <div class="article-content">
+                    <h2>Sample Article Content</h2>
+                    <p>This is sample content that demonstrates how ads integrate with editorial content. The sidebar ad placement is one of the most effective formats for interactive advertising experiences.</p>
+                    
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
+                    
+                    <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                </div>
+            </div>
+            <div class="clear"></div>
+        </div>
+
+        <!-- Rectangle Test Section -->
+        <div class="test-section">
+            <h3>🔲 Medium Rectangle (300×250)</h3>
+            <div class="test-info">
+                <strong>Usage:</strong> In-content, end of articles, sidebars, mobile placements<br>
+                <strong>Best for:</strong> Product displays, compact interactive experiences, high viewability
+            </div>
+            <div class="test-buttons">
+                <button onclick="injectComponent('test-medium-rectangle', '.rectangle-slot')">
+                    Inject Test Rectangle
+                </button>
+                <button onclick="injectComponent('toyota-suv-interactive-showcase', '.rectangle-slot')">
+                    Inject Toyota (Will Adapt)
+                </button>
+                <button onclick="clearSlot('.rectangle-slot')">Clear</button>
+            </div>
+            <div class="content">
+                <div class="ad-slot rectangle-slot" id="rectangle-ad">
+                    Rectangle Ad Slot (300×250)
+                </div>
+                
+                <div class="article-content">
+                    <h2>Article Content with Rectangle Ad</h2>
+                    <p>The medium rectangle is one of the most versatile ad formats, working well in multiple contexts and providing good balance between visibility and content integration.</p>
+                    
+                    <p>This format is particularly effective for e-commerce product showcases, service offerings, and brand campaigns that need more visual space than a banner but less than a full sidebar placement.</p>
+                </div>
+            </div>
+            <div class="clear"></div>
+        </div>
+
+        <!-- Mobile Test Section -->
+        <div class="test-section">
+            <h3>📱 Mobile Banner (320×50)</h3>
+            <div class="test-info">
+                <strong>Usage:</strong> Mobile web, app-like experiences, sticky headers/footers<br>
+                <strong>Best for:</strong> Mobile-first campaigns, call-to-action buttons, app downloads
+            </div>
+            <div class="test-buttons">
+                <button onclick="injectComponent('test-mobile-banner', '.mobile-slot')">
+                    Inject Test Mobile Banner
+                </button>
+                <button onclick="injectComponent('toyota-suv-interactive-showcase', '.mobile-slot')">
+                    Inject Toyota (Will Adapt)
+                </button>
+                <button onclick="clearSlot('.mobile-slot')">Clear</button>
+            </div>
+            <div class="ad-slot mobile-slot" id="mobile-ad">
+                Mobile Ad Slot (320×50)
+            </div>
+        </div>
+
+        <!-- Test Results Section -->
+        <div class="test-section">
+            <h3>🔍 Test Results & Debug Info</h3>
+            <div class="test-info">
+                <div id="debug-info">
+                    Click "Debug Component" after injecting an ad to see dimensional information.
+                </div>
+            </div>
+            <div class="test-buttons">
+                <button onclick="debugComponents()">Debug All Components</button>
+                <button onclick="clearAllSlots()">Clear All Ads</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Test page functionality
+        function injectComponent(componentId, targetSelector) {
+            if (typeof window.firsthandExtension === 'undefined') {
+                alert('Please install and activate the Firsthand Demo Assistant Chrome extension first!');
+                return;
+            }
+            
+            console.log(`Injecting ${componentId} into ${targetSelector}`);
+            
+            try {
+                window.firsthandExtension.inject(componentId, targetSelector, 'replace');
+                updateDebugInfo(`✅ Injected ${componentId} into ${targetSelector}`);
+            } catch (error) {
+                console.error('Injection failed:', error);
+                updateDebugInfo(`❌ Failed to inject ${componentId}: ${error.message}`);
+            }
+        }
+        
+        function clearSlot(selector) {
+            const slot = document.querySelector(selector);
+            if (slot) {
+                slot.innerHTML = slot.id.replace('-', ' ').replace(/([A-Z])/g, ' $1').replace(/^./, str => str.toUpperCase()) + ' Slot';
+                updateDebugInfo(`🧹 Cleared ${selector}`);
+            }
+        }
+        
+        function clearAllSlots() {
+            clearSlot('.leaderboard-slot');
+            clearSlot('.sidebar-slot');
+            clearSlot('.rectangle-slot');
+            clearSlot('.mobile-slot');
+            updateDebugInfo('🧹 Cleared all ad slots');
+        }
+        
+        function debugComponents() {
+            const components = document.querySelectorAll('.firsthand-component-wrapper');
+            let debugText = `Found ${components.length} injected components:\n\n`;
+            
+            components.forEach((comp, index) => {
+                const rect = comp.getBoundingClientRect();
+                const parent = comp.parentElement;
+                const parentClass = parent ? parent.className : 'unknown';
+                
+                debugText += `Component ${index + 1}:
+                - Dimensions: ${Math.round(rect.width)}×${Math.round(rect.height)}px
+                - Position: ${Math.round(rect.left)}, ${Math.round(rect.top)}
+                - Parent: ${parentClass}
+                - ID: ${comp.id}
+                
+                `;
+            });
+            
+            if (components.length === 0) {
+                debugText = '🔍 No components found. Try injecting some ads first!';
+            }
+            
+            updateDebugInfo(debugText);
+        }
+        
+        function updateDebugInfo(message) {
+            const debugDiv = document.getElementById('debug-info');
+            const timestamp = new Date().toLocaleTimeString();
+            debugDiv.innerHTML = `<div style="margin: 5px 0; padding: 8px; background: #f8f9fa; border-left: 3px solid #007bff; border-radius: 3px;">
+                <strong>[${timestamp}]</strong> ${message}
+            </div>` + debugDiv.innerHTML;
+        }
+        
+        // Initialize page
+        document.addEventListener('DOMContentLoaded', function() {
+            updateDebugInfo('🚀 Multi-format test page loaded successfully');
+            
+            // Check if extension is available
+            if (typeof window.firsthandExtension === 'undefined') {
+                updateDebugInfo('⚠️ Firsthand Demo Assistant extension not detected. Please install and reload.');
+            } else {
+                updateDebugInfo('✅ Firsthand Demo Assistant extension detected and ready');
+            }
+        });
+        
+        // Add some interactive feedback
+        document.addEventListener('click', function(e) {
+            if (e.target.classList.contains('firsthand-component-wrapper')) {
+                updateDebugInfo(`🖱️ Clicked on injected component: ${e.target.id}`);
+            }
+        });
+    </script>
+</body>
+</html>

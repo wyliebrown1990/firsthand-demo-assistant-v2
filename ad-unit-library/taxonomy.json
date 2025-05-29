@@ -1,0 +1,361 @@
+{
+  "version": "2.0",
+  "lastUpdated": "2025-05-28",
+  "description": "Taxonomy definitions for the Firsthand Demo Assistant component library",
+  
+  "advertiserVerticals": [
+    {
+      "id": "auto-tier-1",
+      "name": "Auto Tier 1",
+      "description": "Major automotive manufacturers and OEMs",
+      "examples": ["Toyota", "Honda", "Ford", "GM", "BMW", "Mercedes"],
+      "commonKeywords": ["car", "vehicle", "suv", "truck", "sedan", "hybrid", "electric"]
+    },
+    {
+      "id": "cpg-food",
+      "name": "CPG Food",
+      "description": "Consumer packaged goods in food and beverage",
+      "examples": ["Coca-Cola", "PepsiCo", "Nestl�", "Unilever", "Kraft"],
+      "commonKeywords": ["food", "beverage", "snack", "recipe", "cooking", "nutrition"]
+    },
+    {
+      "id": "tech-saas",
+      "name": "Tech SaaS",
+      "description": "Software as a Service and technology platforms",
+      "examples": ["Microsoft", "Google", "Salesforce", "Adobe", "Slack"],
+      "commonKeywords": ["software", "platform", "cloud", "automation", "productivity", "business"]
+    },
+    {
+      "id": "retail",
+      "name": "Retail",
+      "description": "Retail and e-commerce brands",
+      "examples": ["Amazon", "Target", "Walmart", "Best Buy", "Home Depot"],
+      "commonKeywords": ["shopping", "deals", "sale", "store", "products", "delivery"]
+    },
+    {
+      "id": "finance",
+      "name": "Financial Services",
+      "description": "Banks, insurance, and financial products",
+      "examples": ["Chase", "Bank of America", "American Express", "Visa"],
+      "commonKeywords": ["banking", "credit", "loan", "insurance", "investment", "finance"]
+    },
+    {
+      "id": "telecom",
+      "name": "Telecommunications",
+      "description": "Wireless carriers and telecom services",
+      "examples": ["Verizon", "AT&T", "T-Mobile", "Sprint"],
+      "commonKeywords": ["wireless", "phone", "internet", "5g", "plan", "mobile"]
+    },
+    {
+      "id": "gaming",
+      "name": "Gaming",
+      "description": "Video games, gaming platforms, and gaming services",
+      "examples": ["Xbox", "PlayStation", "Nintendo", "Steam", "Epic Games"],
+      "commonKeywords": ["games", "gaming", "console", "pc", "rpg", "action", "adventure", "multiplayer"]
+    }
+  ],
+
+  "publisherVerticals": [
+    {
+      "id": "sports",
+      "name": "Sports",
+      "description": "Sports news, scores, and content",
+      "examples": ["ESPN", "Sports Illustrated", "The Athletic"],
+      "commonKeywords": ["sports", "game", "team", "player", "score", "league"]
+    },
+    {
+      "id": "news",
+      "name": "News",
+      "description": "General news and current events",
+      "examples": ["CNN", "Fox News", "Reuters", "AP News"],
+      "commonKeywords": ["news", "politics", "world", "breaking", "analysis"]
+    },
+    {
+      "id": "lifestyle",
+      "name": "Lifestyle",
+      "description": "Fashion, beauty, and lifestyle content",
+      "examples": ["Vogue", "Elle", "GQ", "Martha Stewart"],
+      "commonKeywords": ["fashion", "beauty", "style", "home", "travel", "wellness"]
+    },
+    {
+      "id": "business",
+      "name": "Business",
+      "description": "Business news and professional content",
+      "examples": ["Wall Street Journal", "Forbes", "Bloomberg"],
+      "commonKeywords": ["business", "finance", "market", "economy", "corporate", "industry"]
+    },
+    {
+      "id": "entertainment",
+      "name": "Entertainment",
+      "description": "Movies, TV, music, and celebrity content",
+      "examples": ["Entertainment Weekly", "Variety", "Hollywood Reporter"],
+      "commonKeywords": ["movie", "tv", "music", "celebrity", "entertainment", "show"]
+    },
+    {
+      "id": "technology",
+      "name": "Technology",
+      "description": "Tech news, reviews, and innovation",
+      "examples": ["TechCrunch", "Wired", "The Verge"],
+      "commonKeywords": ["tech", "gadget", "startup", "innovation", "review", "digital"]
+    }
+  ],
+
+  "adUnitTypes": [
+    {
+      "id": "interactive-experience",
+      "name": "Interactive Experience",
+      "description": "Multi-step interactive ad units with user engagement",
+      "characteristics": ["High interaction", "Multi-step flow", "Form completion", "Rich media"]
+    },
+    {
+      "id": "product-showcase",
+      "name": "Product Showcase",
+      "description": "Product catalog or gallery display",
+      "characteristics": ["Product grid", "Image gallery", "Product details", "CTA buttons"]
+    },
+    {
+      "id": "video-showcase",
+      "name": "Video Showcase",
+      "description": "Video-centric advertising unit",
+      "characteristics": ["Video player", "Interactive overlays", "Video controls", "CTAs"]
+    },
+    {
+      "id": "form-capture",
+      "name": "Form Capture",
+      "description": "Lead generation and form submission",
+      "characteristics": ["Form fields", "Validation", "Progressive disclosure", "Thank you page"]
+    },
+    {
+      "id": "calculator-tool",
+      "name": "Calculator Tool",
+      "description": "Interactive calculators and tools",
+      "characteristics": ["Input fields", "Real-time calculation", "Results display", "Personalization"]
+    },
+    {
+      "id": "quiz-assessment",
+      "name": "Quiz Assessment",
+      "description": "Interactive quizzes and assessments",
+      "characteristics": ["Multiple choice", "Progress indicator", "Results page", "Personalized outcome"]
+    },
+    {
+      "id": "recommendation-engine",
+      "name": "Recommendation Engine",
+      "description": "Personalized product or content recommendations",
+      "characteristics": ["User preference collection", "Dynamic recommendations", "Personalized results", "Discovery experience"]
+    }
+  ],
+
+  "standardDimensions": [
+    {
+      "name": "Banner",
+      "width": 728,
+      "height": 90,
+      "category": "horizontal"
+    },
+    {
+      "name": "Leaderboard",
+      "width": 728,
+      "height": 90,
+      "category": "horizontal"
+    },
+    {
+      "name": "Medium Rectangle",
+      "width": 300,
+      "height": 250,
+      "category": "rectangle"
+    },
+    {
+      "name": "Large Rectangle",
+      "width": 336,
+      "height": 280,
+      "category": "rectangle"
+    },
+    {
+      "name": "Skyscraper",
+      "width": 160,
+      "height": 600,
+      "category": "vertical"
+    },
+    {
+      "name": "Wide Skyscraper",
+      "width": 300,
+      "height": 600,
+      "category": "vertical"
+    },
+    {
+      "name": "Half Page",
+      "width": 300,
+      "height": 600,
+      "category": "vertical"
+    },
+    {
+      "name": "Mobile Banner",
+      "width": 320,
+      "height": 50,
+      "category": "mobile"
+    },
+    {
+      "name": "Mobile Large Banner",
+      "width": 320,
+      "height": 100,
+      "category": "mobile"
+    },
+    {
+      "name": "Interactive Widget",
+      "width": 600,
+      "height": 400,
+      "category": "custom"
+    }
+  ],
+
+  "interactionLevels": [
+    {
+      "level": "simple",
+      "name": "Simple",
+      "description": "Basic click-through functionality",
+      "examples": ["Static images", "Simple hover effects", "Single CTA"]
+    },
+    {
+      "level": "medium",
+      "name": "Medium",
+      "description": "Some interactive elements and state changes",
+      "examples": ["Image carousels", "Expandable content", "Multiple CTAs"]
+    },
+    {
+      "level": "high",
+      "name": "High",
+      "description": "Complex interactions and multi-step experiences",
+      "examples": ["Forms", "Calculators", "Games", "Video interactions"]
+    }
+  ],
+
+  "contentCategories": [
+    {
+      "id": "automotive",
+      "name": "Automotive",
+      "tags": ["cars", "vehicles", "dealership", "test-drive", "financing"]
+    },
+    {
+      "id": "food-beverage",
+      "name": "Food & Beverage",
+      "tags": ["recipes", "nutrition", "restaurants", "delivery", "cooking"]
+    },
+    {
+      "id": "technology",
+      "name": "Technology",
+      "tags": ["software", "apps", "devices", "innovation", "digital"]
+    },
+    {
+      "id": "retail-shopping",
+      "name": "Retail & Shopping",
+      "tags": ["products", "deals", "sale", "shopping", "e-commerce"]
+    },
+    {
+      "id": "travel",
+      "name": "Travel",
+      "tags": ["vacation", "hotels", "flights", "destinations", "booking"]
+    },
+    {
+      "id": "health-wellness",
+      "name": "Health & Wellness",
+      "tags": ["fitness", "nutrition", "medical", "wellness", "lifestyle"]
+    },
+    {
+      "id": "gaming",
+      "name": "Gaming",
+      "tags": ["video-games", "console", "pc-gaming", "rpg", "action", "adventure", "multiplayer", "esports"]
+    }
+  ],
+
+  "targetingAttributes": [
+    {
+      "category": "demographics",
+      "attributes": [
+        "age-18-24",
+        "age-25-34", 
+        "age-35-44",
+        "age-45-54",
+        "age-55-64",
+        "age-65-plus",
+        "income-low",
+        "income-medium",
+        "income-high",
+        "education-high-school",
+        "education-college",
+        "education-graduate"
+      ]
+    },
+    {
+      "category": "interests",
+      "attributes": [
+        "sports-enthusiast",
+        "tech-early-adopter",
+        "fashion-conscious",
+        "health-fitness",
+        "travel-frequent",
+        "food-cooking",
+        "automotive-enthusiast",
+        "business-professional"
+      ]
+    },
+    {
+      "category": "behavior",
+      "attributes": [
+        "online-shopper",
+        "mobile-heavy-user",
+        "social-media-active",
+        "video-streamer",
+        "news-reader",
+        "deal-seeker",
+        "luxury-buyer",
+        "eco-conscious"
+      ]
+    }
+  ],
+
+  "seasonality": [
+    {
+      "period": "holiday-season",
+      "months": ["November", "December"],
+      "themes": ["gifts", "family", "celebration", "shopping"]
+    },
+    {
+      "period": "back-to-school",
+      "months": ["August", "September"],
+      "themes": ["education", "supplies", "technology", "preparation"]
+    },
+    {
+      "period": "summer",
+      "months": ["June", "July", "August"],
+      "themes": ["vacation", "outdoor", "travel", "leisure"]
+    },
+    {
+      "period": "spring",
+      "months": ["March", "April", "May"],
+      "themes": ["renewal", "cleaning", "outdoors", "fresh-start"]
+    }
+  ],
+
+  "performanceMetrics": [
+    {
+      "metric": "viewability",
+      "description": "Percentage of ad that is viewable",
+      "benchmark": "> 70%"
+    },
+    {
+      "metric": "interaction-rate",
+      "description": "Percentage of viewers who interact",
+      "benchmark": "> 1%"
+    },
+    {
+      "metric": "completion-rate",
+      "description": "Percentage who complete the experience",
+      "benchmark": "> 50%"
+    },
+    {
+      "metric": "click-through-rate",
+      "description": "Percentage who click through to landing page",
+      "benchmark": "> 0.5%"
+    }
+  ]
+}
